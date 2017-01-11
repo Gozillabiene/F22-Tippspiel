@@ -30,7 +30,7 @@ import java.util.concurrent.ExecutionException;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    public int aktuellerSpieltag;
     final Context context = this;
     public Fragment0_Home fragment0;
     public Fragment1_Tipps fragment1;
@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity
         isOnline();
 
         versionsKontrolle();
+
+        aktuellerSpieltag = spielTag();
 
         changeTextview(getString(R.string.nichtangemeldet));
 
@@ -485,6 +487,20 @@ public class MainActivity extends AppCompatActivity
             FunktionenAllgemein.isOffline(context);
             return false;
         }
+    }
+    public int spielTag (){
+        String output=null;
+        try {
+            output = new AuslesenWeb()
+                    .execute("","","spieltag","","")
+                    .get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        output=output.replaceAll("[\\D]","");
+        return Integer.parseInt(output);
     }
 
 }
