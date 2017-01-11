@@ -39,6 +39,7 @@ public class Fragment3_Ubersicht extends Fragment {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource( getActivity() , R.array.spn_spieltag, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp.setAdapter(adapter);
+        sp.setSelection(((MainActivity)getActivity()).aktuellerSpieltag);
 
 
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

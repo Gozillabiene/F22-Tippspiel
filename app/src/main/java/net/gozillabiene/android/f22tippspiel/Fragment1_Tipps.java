@@ -38,8 +38,9 @@ public String item;
         Spinner sp = (Spinner) fraglayoutv1.findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource( getActivity() , R.array.spn_spieltag, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp.setAdapter(adapter);
 
+        sp.setAdapter(adapter);
+        sp.setSelection(((MainActivity)getActivity()).aktuellerSpieltag);
 
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View v, int position, long id) {
@@ -400,17 +401,5 @@ public String item;
         EditText etg9 =(EditText)getActivity().findViewById(R.id.et_gast9);etg9.setText("");
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
