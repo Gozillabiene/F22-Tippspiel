@@ -1,0 +1,98 @@
+<resources>
+
+    <!-- Common -->
+    <string name="app_name">F22 Tippspiel</string>
+
+    <string name="versionName">1.8.6</string>
+    <integer name="versionCode">1</integer>
+    <string name="saison">1617</string>
+
+    <string name="copyright">© 2016 Gozillabiene</string>
+    <string name="adm_mail">webmaster@gozillabiene.net</string>
+    <string name="www">https://tipp.gozillabiene.net</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="blank"></string>
+    <string name="doppelpunkt">:</string>
+    <string name="speichern">speichern</string>
+    <string name="joker">Joker</string>
+    <!-- /Common -->
+
+    <!-- Navigation -->
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_login">Login</string>
+    <string name="nav_tipps">Tipps</string>
+    <string name="nav_tabelle">Tabelle</string>
+    <string name="nav_ubersicht">Übersicht</string>
+    <string name="nav_admin">Admin</string>
+    <string name="nav_support">Support</string>
+    <string name="nav_anleitung">Anleitung</string>
+    <string name="nav_hilfe">Hilfe</string>
+    <!-- /Navigation -->
+
+    <!-- Seite Hilfe -->
+    <string name="hilfetext0"></string>
+    <string name="hilfetext1">Bei Problemen,</string>
+    <string name="hilfetext2">die Tipps an</string>
+    <string name="hilfetext3">John</string>
+    <string name="hilfetext4">per Email schicken</string>
+    <string name="hilfetext5">john@1969@gmx.de</string>
+    <string name="hilfetext6">oder an</string>
+    <string name="hilfetext7">0173 / 2467194</string>
+    <!-- /Seite Hilfe -->
+
+    <!-- Seite Tipps -->
+    <string name="spieltag">Spieltag</string>
+    <string name="hinrunde">Hinrunde</string>
+    <string name="ruckrunde">Rückrunde</string>
+    <string-array name="spn_spieltag"><item>Spieltag wählen</item>
+        <item>1. Spieltag (Hinrunde)</item><item>2. Spieltag (Hinrunde)</item><item>3. Spieltag (Hinrunde)</item>
+        <item>4. Spieltag (Hinrunde)</item><item>5. Spieltag (Hinrunde)</item><item>6. Spieltag (Hinrunde)</item>
+        <item>7. Spieltag (Hinrunde)</item><item>8. Spieltag (Hinrunde)</item><item>9. Spieltag (Hinrunde)</item>
+        <item>10. Spieltag (Hinrunde)</item><item>11. Spieltag (Hinrunde)</item><item>12. Spieltag (Hinrunde)</item>
+        <item>13. Spieltag (Hinrunde)</item><item>14. Spieltag (Hinrunde)</item><item>15. Spieltag (Hinrunde)</item>
+        <item>16. Spieltag (Hinrunde)</item><item>17. Spieltag (Hinrunde)</item>
+        <item>18. Spieltag (Rückrunde)</item><item>19. Spieltag (Rückrunde)</item><item>20. Spieltag (Rückrunde)</item>
+        <item>21. Spieltag (Rückrunde)</item><item>22. Spieltag (Rückrunde)</item><item>23. Spieltag (Rückrunde)</item>
+        <item>24. Spieltag (Rückrunde)</item><item>25. Spieltag (Rückrunde)</item><item>26. Spieltag (Rückrunde)</item>
+        <item>27. Spieltag (Rückrunde)</item><item>28. Spieltag (Rückrunde)</item><item>29. Spieltag (Rückrunde)</item>
+        <item>30. Spieltag (Rückrunde)</item><item>31. Spieltag (Rückrunde)</item><item>32. Spieltag (Rückrunde)</item>
+        <item>33. Spieltag (Rückrunde)</item><item>34. Spieltag (Rückrunde)</item>
+    </string-array>
+    <!-- /Seite Tipps -->
+
+    <!-- Recourcen Login -->
+    <string name="login_benutzername_title">Benutzername</string>
+    <string name="login_benutzername_key">benutzername</string>
+    <string name="login_benutzername_default"></string>
+    <string name="login_benutzername_summary">Bitte gib deinen Benutzernamen ein.</string>
+
+    <string name="login_passwort_title">Passwort</string>
+    <string name="login_passwort_key">passwort</string>
+    <string name="login_passwort_default"></string>
+    <string name="login_passwort_summary">Bitte gib dein Passwort ein.</string>
+
+    <string name="login_www_webseite">Webseite</string>
+    <string name="login_www_homepage">Homepage</string>
+    <!-- /Recourcen Login -->
+
+    <!-- Recourcen Einstellungen -->
+    <string name="einstellungen_benachrichtigung_title">Benachrichtigungne</string>
+    <string name="einstellungen_benachrichtigung_key">benachrichtigung</string>
+    <string name="einstellungen_benachrichtigung_summary">möchtest du Benachrichtigungen bekommen.</string>
+
+
+    <array name="entries_list_preference">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+    </array>
+    <array name="entryvalues_list_preference">
+        <item>AA</item>
+        <item>BB</item>
+        <item>CC</item>
+    </array>
+    <!-- /Recourcen Einstellungen -->
+
+    <string name="nichtangemeldet">nicht angemeldet</string>
+</resources>

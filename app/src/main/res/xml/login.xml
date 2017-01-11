@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Login" >
+
+        <EditTextPreference
+            android:title="@string/login_benutzername_title"
+            android:summary="@string/login_benutzername_summary"
+            android:key="@string/login_benutzername_key"
+            android:defaultValue="@string/login_benutzername_default"
+            android:inputType="textMultiLine"
+            android:singleLine="false"
+            android:id="@+id/frmBenutzername"
+            android:icon="@android:drawable/ic_menu_edit"
+            android:dialogIcon="@android:drawable/ic_menu_edit" />
+
+        <EditTextPreference
+            android:title="@string/login_passwort_title"
+            android:summary="@string/login_passwort_summary"
+            android:key="@string/login_passwort_key"
+            android:defaultValue="@string/login_passwort_default"
+            android:inputType="textPassword"
+            android:icon="@android:drawable/ic_lock_idle_lock"
+            android:dialogIcon="@android:drawable/ic_lock_idle_lock" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/login_www_homepage" >
+
+        <PreferenceScreen
+            android:title="@string/login_www_webseite"
+            android:summary="@string/www">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/www" />
+
+        </PreferenceScreen>
+
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

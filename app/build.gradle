@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'F22-Tippspiel'
+            keyPassword '7171/grobi/0815/wuast'
+            storeFile file('/home/gozillabiene/AndroidStudioProjects/app-signatur.jks')
+            storePassword '7171/grobi/0815/wuast'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion '23.0.2'
+    useLibrary "org.apache.http.legacy"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    defaultConfig {
+        applicationId "net.gozillabiene.android.f22tippspiel"
+        minSdkVersion 19
+        targetSdkVersion 24
+        versionCode 1
+        //versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile 'com.android.support:design:24.2.0'
+}

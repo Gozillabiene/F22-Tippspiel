@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/normaleseite">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/textView0"
+            android:text="@string/hilfetext0"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="28sp"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/textView1"
+            android:text="@string/hilfetext1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="28sp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:text="@string/hilfetext2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textSize="28sp"
+            android:textAlignment="center" />
+        <TextView
+            android:text="@string/hilfetext3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:textSize="28sp"
+            android:textAlignment="center" />
+        <TextView
+            android:text="@string/hilfetext4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textSize="28sp"
+            android:textAlignment="center" />
+        <TextView
+            android:text="@string/hilfetext5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:textSize="28sp"
+            android:textAlignment="center" />
+        <TextView
+            android:text="@string/hilfetext6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            android:textSize="28sp"
+            android:textAlignment="center" />
+        <TextView
+            android:text="@string/hilfetext7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7"
+            android:textSize="28sp"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+
+    <TextView
+        android:text="@string/copyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/copyright" />
+
+</RelativeLayout>
