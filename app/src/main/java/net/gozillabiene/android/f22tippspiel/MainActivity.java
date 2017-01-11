@@ -53,13 +53,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         isOnline();
-
         versionsKontrolle();
-
         changeTextview(getString(R.string.nichtangemeldet));
-
         starteOberflaeche();
-
         onLogin();
 
     }
