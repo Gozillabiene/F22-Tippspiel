@@ -188,21 +188,22 @@ public String item;
 
         int zaehler=0;
         String rest="0";
-        tvz1.setText(FunktionenAllgemein.getDate(result[xx]));xx++;
-        tvh1.setText(result[xx]);xx++;
-        tvg1.setText(result[xx]);xx++;
+        tvz1.setText(FunktionenAllgemein.getDate(result[xx]));xx++;     // Zeit
+        tvh1.setText(result[xx]);xx++;                                  // Heimmannschaft
+        tvg1.setText(result[xx]);xx++;                                  // Gastmannschaft
         if(result[xx].equals("-")){result[xx]="";}
-        edh1.setText(result[xx]);xx++;
+        edh1.setText(result[xx]);xx++;                                  // Tipp Heim
         if(result[xx].equals("-")){result[xx]="";}
-        edg1.setText(result[xx]);xx++;
+        edg1.setText(result[xx]);xx++;                                  // Tipp Gast
         xx++;
-        tve1.setText(result[xx-1]+" : "+result[xx]);
+        tve1.setText(result[xx-1]+" : "+result[xx]);                    // erg Spiel
         xx++;
-        if(result[xx].equals("1")){rest="1";}
+        if(result[xx].equals("1")){rest="1";}                           // restliche Joker sperren
         xx++;
-        if(result[xx].equals("1") || rest.equals("1")){zaehler++;edh1.setEnabled(false);edg1.setEnabled(false);btn1.setEnabled(false);}else{edh1.setEnabled(true);edg1.setEnabled(true);btn1.setEnabled(true);}
+        if(result[xx].equals("1") ){zaehler++;edh1.setEnabled(false);edg1.setEnabled(false);btn1.setEnabled(false);}else{edh1.setEnabled(true);edg1.setEnabled(true);btn1.setEnabled(true);}
         xx++;
         if(result[xx].equals("1")){btn1.setChecked(true);}else{btn1.setChecked(false);}
+        if(rest.equals("1") || result[xx-1].equals("1")){btn1.setEnabled(false);}else{btn1.setEnabled(true);}
         xx++;
 
         tvz2.setText(FunktionenAllgemein.getDate(result[xx]));xx++;
@@ -217,9 +218,10 @@ public String item;
         xx++;
         if(result[xx].equals("1")){rest="1";}
         xx++;
-        if(result[xx].equals("1") || rest.equals("1")){zaehler++;edh2.setEnabled(false);edg2.setEnabled(false);btn2.setEnabled(false);}else{edh2.setEnabled(true);edg2.setEnabled(true);btn2.setEnabled(true);}
+        if(result[xx].equals("1") ){zaehler++;edh2.setEnabled(false);edg2.setEnabled(false);btn2.setEnabled(false);}else{edh2.setEnabled(true);edg2.setEnabled(true);btn2.setEnabled(true);}
         xx++;
         if(result[xx].equals("1")){btn2.setChecked(true);}else{btn2.setChecked(false);}
+        if(rest.equals("1") || result[xx-1].equals("1")){btn2.setEnabled(false);}else{btn2.setEnabled(true);}
         xx++;
 
         tvz3.setText(FunktionenAllgemein.getDate(result[xx]));xx++;
@@ -234,9 +236,10 @@ public String item;
         xx++;
         if(result[xx].equals("1")){rest="1";}
         xx++;
-        if(result[xx].equals("1") || rest.equals("1")){zaehler++;edh3.setEnabled(false);edg3.setEnabled(false);btn3.setEnabled(false);}else{edh3.setEnabled(true);edg3.setEnabled(true);btn3.setEnabled(true);}
+        if(result[xx].equals("1") ){zaehler++;edh3.setEnabled(false);edg3.setEnabled(false);btn3.setEnabled(false);}else{edh3.setEnabled(true);edg3.setEnabled(true);btn3.setEnabled(true);}
         xx++;
         if(result[xx].equals("1")){btn3.setChecked(true);}else{btn3.setChecked(false);}
+        if(rest.equals("1") || result[xx-1].equals("1")){btn3.setEnabled(false);}else{btn3.setEnabled(true);}
         xx++;
 
         tvz4.setText(FunktionenAllgemein.getDate(result[xx]));xx++;
@@ -251,9 +254,10 @@ public String item;
         xx++;
         if(result[xx].equals("1")){rest="1";}
         xx++;
-        if(result[xx].equals("1") || rest.equals("1")){zaehler++;edh4.setEnabled(false);edg4.setEnabled(false);btn4.setEnabled(false);}else{edh4.setEnabled(true);edg4.setEnabled(true);btn4.setEnabled(true);}
+        if(result[xx].equals("1") ){zaehler++;edh4.setEnabled(false);edg4.setEnabled(false);btn4.setEnabled(false);}else{edh4.setEnabled(true);edg4.setEnabled(true);btn4.setEnabled(true);}
         xx++;
         if(result[xx].equals("1")){btn4.setChecked(true);}else{btn4.setChecked(false);}
+        if(rest.equals("1") || result[xx-1].equals("1")){btn4.setEnabled(false);}else{btn4.setEnabled(true);}
         xx++;
 
         tvz5.setText(FunktionenAllgemein.getDate(result[xx]));xx++;
@@ -268,9 +272,10 @@ public String item;
         xx++;
         if(result[xx].equals("1")){rest="1";}
         xx++;
-        if(result[xx].equals("1") || rest.equals("1")){zaehler++;edh5.setEnabled(false);edg5.setEnabled(false);btn5.setEnabled(false);}else{edh5.setEnabled(true);edg5.setEnabled(true);btn5.setEnabled(true);}
+        if(result[xx].equals("1") ){zaehler++;edh5.setEnabled(false);edg5.setEnabled(false);btn5.setEnabled(false);}else{edh5.setEnabled(true);edg5.setEnabled(true);btn5.setEnabled(true);}
         xx++;
         if(result[xx].equals("1")){btn5.setChecked(true);}else{btn5.setChecked(false);}
+        if(rest.equals("1") || result[xx-1].equals("1")){btn5.setEnabled(false);}else{btn5.setEnabled(true);}
         xx++;
 
         tvz6.setText(FunktionenAllgemein.getDate(result[xx]));xx++;
@@ -285,9 +290,10 @@ public String item;
         xx++;
         if(result[xx].equals("1")){rest="1";}
         xx++;
-        if(result[xx].equals("1") || rest.equals("1")){zaehler++;edh6.setEnabled(false);edg6.setEnabled(false);btn6.setEnabled(false);}else{edh6.setEnabled(true);edg6.setEnabled(true);btn6.setEnabled(true);}
+        if(result[xx].equals("1") ){zaehler++;edh6.setEnabled(false);edg6.setEnabled(false);btn6.setEnabled(false);}else{edh6.setEnabled(true);edg6.setEnabled(true);btn6.setEnabled(true);}
         xx++;
         if(result[xx].equals("1")){btn6.setChecked(true);}else{btn6.setChecked(false);}
+        if(rest.equals("1") || result[xx-1].equals("1")){btn6.setEnabled(false);}else{btn6.setEnabled(true);}
         xx++;
 
         tvz7.setText(FunktionenAllgemein.getDate(result[xx]));xx++;
@@ -302,9 +308,10 @@ public String item;
         xx++;
         if(result[xx].equals("1")){rest="1";}
         xx++;
-        if(result[xx].equals("1") || rest.equals("1")){zaehler++;edh7.setEnabled(false);edg7.setEnabled(false);btn7.setEnabled(false);}else{edh7.setEnabled(true);edg7.setEnabled(true);btn7.setEnabled(true);}
+        if(result[xx].equals("1") ){zaehler++;edh7.setEnabled(false);edg7.setEnabled(false);btn7.setEnabled(false);}else{edh7.setEnabled(true);edg7.setEnabled(true);btn7.setEnabled(true);}
         xx++;
         if(result[xx].equals("1")){btn7.setChecked(true);}else{btn7.setChecked(false);}
+        if(rest.equals("1") || result[xx-1].equals("1")){btn7.setEnabled(false);}else{btn7.setEnabled(true);}
         xx++;
 
         tvz8.setText(FunktionenAllgemein.getDate(result[xx]));xx++;
@@ -319,9 +326,10 @@ public String item;
         xx++;
         if(result[xx].equals("1")){rest="1";}
         xx++;
-        if(result[xx].equals("1") || rest.equals("1")){zaehler++;edh8.setEnabled(false);edg8.setEnabled(false);btn8.setEnabled(false);}else{edh8.setEnabled(true);edg8.setEnabled(true);btn8.setEnabled(true);}
+        if(result[xx].equals("1") ){zaehler++;edh8.setEnabled(false);edg8.setEnabled(false);btn8.setEnabled(false);}else{edh8.setEnabled(true);edg8.setEnabled(true);btn8.setEnabled(true);}
         xx++;
         if(result[xx].equals("1")){btn8.setChecked(true);}else{btn8.setChecked(false);}
+        if(rest.equals("1") || result[xx-1].equals("1")){btn8.setEnabled(false);}else{btn8.setEnabled(true);}
         xx++;
 
         tvz9.setText(FunktionenAllgemein.getDate(result[xx]));xx++;
@@ -336,9 +344,10 @@ public String item;
         xx++;
         if(result[xx].equals("1")){rest="1";}
         xx++;
-        if(result[xx].equals("1") || rest.equals("1")){zaehler++;edh9.setEnabled(false);edg9.setEnabled(false);btn9.setEnabled(false);}else{edh9.setEnabled(true);edg9.setEnabled(true);btn9.setEnabled(true);}
+        if(result[xx].equals("1") ){zaehler++;edh9.setEnabled(false);edg9.setEnabled(false);btn9.setEnabled(false);}else{edh9.setEnabled(true);edg9.setEnabled(true);btn9.setEnabled(true);}
         xx++;
         if(result[xx].equals("1")){btn9.setChecked(true);}else{btn9.setChecked(false);}
+        if(rest.equals("1") || result[xx-1].equals("1")){btn9.setEnabled(false);}else{btn9.setEnabled(true);}
         xx++;
 
         if(zaehler==9){
