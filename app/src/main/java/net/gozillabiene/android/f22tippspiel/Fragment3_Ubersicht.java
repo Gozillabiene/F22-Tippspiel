@@ -56,7 +56,10 @@ public class Fragment3_Ubersicht extends Fragment {
                     String pass= FunktionenAllgemein.md5(((MainActivity)getActivity()).passwort());
 
                     if(position >= 1) {
-                        datenSenden(ben, pass, "ubersicht", item, getString(R.string.saison));
+                        if(FunktionenAllgemein.isURLReachable(getActivity())==true) {
+
+                            datenSenden(ben, pass, "ubersicht", item, getString(R.string.saison));
+                        }
                     }
                 } catch (ExecutionException e) {
                     e.printStackTrace();

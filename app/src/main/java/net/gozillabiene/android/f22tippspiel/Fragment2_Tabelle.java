@@ -34,14 +34,16 @@ public class Fragment2_Tabelle extends Fragment {
         String ben=((MainActivity)getActivity()).benutzername();
         String pass= FunktionenAllgemein.md5(((MainActivity)getActivity()).passwort());
 
-        try {
-            datenSenden(ben,pass,"tabelle",item,getString(R.string.saison));
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        if(FunktionenAllgemein.isURLReachable(getActivity())==true) {
 
+            try {
+                datenSenden(ben, pass, "tabelle", item, getString(R.string.saison));
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
         return fraglayoutv2;
     }

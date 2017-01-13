@@ -52,18 +52,19 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        isOnline();
-
+        //isOnline();
+    if(FunktionenAllgemein.isURLReachable(context)==true) {
         versionsKontrolle();
 
         aktuellerSpieltag = spielTag();
-
+    }
         changeTextview(getString(R.string.nichtangemeldet));
 
         starteOberflaeche();
 
-        onLogin();
-
+        if(FunktionenAllgemein.isURLReachable(context)==true) {
+            onLogin();
+        }
     }
     public void datenSpeichern(View v){
 
@@ -248,9 +249,12 @@ public class MainActivity extends AppCompatActivity
 
         String output=null;
         try {
-            output = new AuslesenWeb()
-                    .execute(benutzername(), FunktionenAllgemein.md5(passwort()),"tipp_speichern",newString5,getString(R.string.saison))
-                    .get();
+            if(FunktionenAllgemein.isURLReachable(context)==true) {
+
+                output = new AuslesenWeb()
+                        .execute(benutzername(), FunktionenAllgemein.md5(passwort()), "tipp_speichern", newString5, getString(R.string.saison))
+                        .get();
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -471,16 +475,6 @@ public class MainActivity extends AppCompatActivity
         fragtrans.add(R.id.HauptLayout, fragment0);
         fragtrans.commit();
 
-    }
-    protected boolean isOnline() {
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnected()) {
-            return true;
-        } else {
-            FunktionenAllgemein.isOffline(context);
-            return false;
-        }
     }
     public int spielTag (){
         String output=null;

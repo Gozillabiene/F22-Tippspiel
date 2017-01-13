@@ -6,9 +6,16 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
@@ -104,17 +111,45 @@ public class FunktionenAllgemein {
                 .setMessage("Du bist momentan nicht.\n\n" +
                             "mit dem Internet verbundnen.\n\n" +
                             "Bitte sorge dafür das du eine \n\n" +
-                            "Verbindung zum Internet herstellst.")
+                            "Verbindung zum Internet herstellst.\n\n" +
+                            "Die App wird jetzt beendet.")
                 .setIcon(R.drawable.ic_error_outline_black_24dp)
                 .setCancelable(false)
                 .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
 
-
+                                MainActivity ma = (MainActivity) context;
+                                ma.finish();
                             }
                         }
                 );
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
+    }
+    static public boolean isURLReachable(Context context) {
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnected()) {
+            try {
+                URL url = new URL("http://google.com");   // Change to "http://google.com" for www  test.
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                conn.setConnectTimeout(10 * 1000);          // 10 s.
+                conn.connect();
+
+                if (conn.getResponseCode() == 200) {        // 200 = "OK" code (http connection is fine).
+                    Log.wtf("Connection", "Success !");
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (MalformedURLException e1) {
+                return false;
+            } catch (IOException e) {
+                return false;
+            }
+        }
+        return false;
     }
 }
