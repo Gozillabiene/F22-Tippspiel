@@ -11,6 +11,9 @@ import android.net.NetworkInfo;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -134,7 +137,7 @@ public class FunktionenAllgemein {
             try {
                 URL url = new URL("http://google.com");   // Change to "http://google.com" for www  test.
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("GET");
+
                 conn.setConnectTimeout(10 * 1000);          // 10 s.
                 conn.connect();
 
@@ -142,14 +145,21 @@ public class FunktionenAllgemein {
                     Log.wtf("Connection", "Success !");
                     return true;
                 } else {
+                    isOffline(context);
                     return false;
                 }
             } catch (MalformedURLException e1) {
+                isOffline(context);
                 return false;
             } catch (IOException e) {
+                isOffline(context);
                 return false;
+            } catch (Exception ex) {
+                Toast.makeText(context,"Verbunden",Toast.LENGTH_LONG).show();
+                return true;
             }
         }
+        isOffline(context);
         return false;
     }
 }
