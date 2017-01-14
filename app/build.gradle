@@ -9,7 +9,7 @@ android {
             storePassword '7171/grobi/0815/wuast'
         }
     }
-    compileSdkVersion 23
+    compileSdkVersion 24
     buildToolsVersion '23.0.2'
     useLibrary "org.apache.http.legacy"
     compileOptions {

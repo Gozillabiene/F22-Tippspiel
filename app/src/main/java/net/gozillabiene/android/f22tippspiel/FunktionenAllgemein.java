@@ -10,10 +10,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -110,11 +106,13 @@ public class FunktionenAllgemein {
     public static void isOffline(final Context context){
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         alertDialogBuilder.setTitle("Warnung !!");
+
         alertDialogBuilder
                 .setMessage("Du bist momentan nicht.\n\n" +
                             "mit dem Internet verbundnen.\n\n" +
                             "Bitte sorge dafür das du eine \n\n" +
-                            "Verbindung zum Internet herstellst.\n\n" +
+                            "Verbindung zum Internet herstellst,\n\n" +
+                            "oder der Server vom Spiel ist Offline.\n\n" +
                             "Die App wird jetzt beendet.")
                 .setIcon(R.drawable.ic_error_outline_black_24dp)
                 .setCancelable(false)
@@ -135,14 +133,14 @@ public class FunktionenAllgemein {
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         if (netInfo != null && netInfo.isConnected()) {
             try {
-                URL url = new URL("http://google.com");   // Change to "http://google.com" for www  test.
+                URL url = new URL("https://tipp.gozillabiene.net");   // Change to "http://google.com" for www  test.
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
                 conn.setConnectTimeout(10 * 1000);          // 10 s.
                 conn.connect();
 
                 if (conn.getResponseCode() == 200) {        // 200 = "OK" code (http connection is fine).
-                    Log.wtf("Connection", "Success !");
+
                     return true;
                 } else {
                     isOffline(context);
@@ -155,7 +153,6 @@ public class FunktionenAllgemein {
                 isOffline(context);
                 return false;
             } catch (Exception ex) {
-                Toast.makeText(context,"Verbunden",Toast.LENGTH_LONG).show();
                 return true;
             }
         }

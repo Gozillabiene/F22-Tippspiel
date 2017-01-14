@@ -29,12 +29,10 @@ public class Fragment2_Tabelle extends Fragment {
 
         fraglayoutv2 = inflater.inflate(R.layout.frag2_tabelle_layout, null);
 
-
-
         String ben=((MainActivity)getActivity()).benutzername();
         String pass= FunktionenAllgemein.md5(((MainActivity)getActivity()).passwort());
 
-        if(FunktionenAllgemein.isURLReachable(getActivity())==true) {
+        if(FunktionenAllgemein.isURLReachable(getActivity())) {
 
             try {
                 datenSenden(ben, pass, "tabelle", item, getString(R.string.saison));

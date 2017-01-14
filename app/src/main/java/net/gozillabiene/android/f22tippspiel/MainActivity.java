@@ -1,14 +1,16 @@
 package net.gozillabiene.android.f22tippspiel;
 
+import android.app.AlarmManager;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +18,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity
     public FragmentTransaction fragtrans;
     public int neueVersion;
     private final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1001;
+    long backPressedTime = 0;
 
 
     @Override
@@ -52,8 +56,11 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //isOnline();
-    if(FunktionenAllgemein.isURLReachable(context)==true) {
+        starteService();
+
+        FunktionenNofify.notyfiClear(context);
+
+    if(FunktionenAllgemein.isURLReachable(context)) {
         versionsKontrolle();
 
         aktuellerSpieltag = spielTag();
@@ -62,7 +69,7 @@ public class MainActivity extends AppCompatActivity
 
         starteOberflaeche();
 
-        if(FunktionenAllgemein.isURLReachable(context)==true) {
+        if(FunktionenAllgemein.isURLReachable(context)) {
             onLogin();
         }
     }
@@ -249,7 +256,7 @@ public class MainActivity extends AppCompatActivity
 
         String output=null;
         try {
-            if(FunktionenAllgemein.isURLReachable(context)==true) {
+            if(FunktionenAllgemein.isURLReachable(context)) {
 
                 output = new AuslesenWeb()
                         .execute(benutzername(), FunktionenAllgemein.md5(passwort()), "tipp_speichern", newString5, getString(R.string.saison))
@@ -309,7 +316,15 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            long t = System.currentTimeMillis();
+            if (t - backPressedTime > 2000) {    // 2 secs
+                backPressedTime = t;
+                Vibrator v = (Vibrator) this.context.getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(500);
+                Toast.makeText(this, "Zum beenden 2 mal drücken", Toast.LENGTH_SHORT).show();
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 
@@ -490,5 +505,28 @@ public class MainActivity extends AppCompatActivity
         output=output.replaceAll("[\\D]","");
         return Integer.parseInt(output);
     }
+    @Override
+    public void onPause() {
+        super.onPause();
 
+    }
+
+    public void starteService(){
+        Intent wtdSServiceIntent = new Intent(this, WTDStartedService.class);
+        PendingIntent wtdSServicePendingIntent = PendingIntent.getService(this, 0, wtdSServiceIntent, 0);
+
+        //Wie gross soll der Intervall sein?
+        long interval = DateUtils.MINUTE_IN_MILLIS * 2; // Alle 2 Minuten
+
+        //Wann soll der Service das erste Mal gestartet werden?
+        long firstStart = System.currentTimeMillis() + interval;
+
+        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        //am.set(AlarmManager.RTC, firstStart, wtdSServicePendingIntent);
+        //am.setRepeating(AlarmManager.RTC_WAKEUP, firstStart, interval,
+        //											wtdSServicePendingIntent);
+        am.setInexactRepeating(AlarmManager.RTC, firstStart, interval,
+                wtdSServicePendingIntent);
+
+    }
 }

@@ -8,10 +8,37 @@
         <CheckBoxPreference
             android:key="@string/einstellungen_benachrichtigung_key"
             android:title="@string/einstellungen_benachrichtigung_title"
+            android:defaultValue="false"
             android:summary="@string/einstellungen_benachrichtigung_summary" />
 
-    </PreferenceCategory>
+        <CheckBoxPreference
+            android:key="@string/einstellungen_benachrichtigung_ton_key"
+            android:dependency="@string/einstellungen_benachrichtigung_key"
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:title="@string/einstellungen_benachrichtigung_ton_title"
+            android:summary="@string/einstellungen_benachrichtigung_ton_summary"
+            android:defaultValue="false" />
 
+        <CheckBoxPreference
+            android:key="@string/einstellungen_benachrichtigung_led_key"
+            android:dependency="@string/einstellungen_benachrichtigung_key"
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:title="@string/einstellungen_benachrichtigung_led_title"
+            android:summary="@string/einstellungen_benachrichtigung_led_summary"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:defaultValue="CYAN"
+            android:key="@string/einstellungen_benachrichtigung_farbe_key"
+            android:dependency="@string/einstellungen_benachrichtigung_led_key"
+            android:title="@string/einstellungen_benachrichtigung_farbe_title"
+            android:summary="@string/einstellungen_benachrichtigung_farbe_summary"
+            android:entries="@array/einstellungen_benachrichtigung_farbe"
+            android:entryValues="@array/einstellungen_benachrichtigung_farbe_value"
+            android:dialogTitle="@string/einstellungen_benachrichtigung_farbe_dialog" />
+
+    </PreferenceCategory>
+<!--
     <PreferenceCategory
         android:title="dialog_based_preferences">
 
@@ -34,15 +61,13 @@
     <PreferenceCategory
         android:title="launch_preferences">
 
-        <!-- This PreferenceScreen tag serves as a screen break (similar to page break
-             in word processing). Like for other preference types, we assign a key
-             here so it is able to save and restore its instance state. -->
+
         <PreferenceScreen
             android:key="screen_preference"
             android:title="title_screen_preference"
             android:summary="summary_screen_preference">
 
-            <!-- You can place more preferences here that will be shown on the next screen. -->
+
 
             <CheckBoxPreference
                 android:key="next_screen_checkbox_preference"
@@ -70,7 +95,6 @@
             android:title="title_parent_preference"
             android:summary="summary_parent_preference" />
 
-        <!-- The visual style of a child is defined by this styled theme attribute. -->
         <CheckBoxPreference
             android:key="child_checkbox_preference"
             android:dependency="parent_checkbox_preference"
@@ -79,5 +103,5 @@
             android:summary="summary_child_preference" />
 
     </PreferenceCategory>
-
+-->
 </PreferenceScreen>

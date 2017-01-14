@@ -77,20 +77,38 @@
     <!-- /Recourcen Login -->
 
     <!-- Recourcen Einstellungen -->
-    <string name="einstellungen_benachrichtigung_title">Benachrichtigungne</string>
+    <string name="einstellungen_benachrichtigung_title">Benachrichtigungen</string>
     <string name="einstellungen_benachrichtigung_key">benachrichtigung</string>
-    <string name="einstellungen_benachrichtigung_summary">möchtest du Benachrichtigungen bekommen.</string>
+    <string name="einstellungen_benachrichtigung_summary">möchtest du eine Benachrichtigung\nvor dem Anpfiff bekommen.</string>
+    <string name="einstellungen_benachrichtigung_ton_title">Ton</string>
+    <string name="einstellungen_benachrichtigung_ton_key">benachrichtigungton</string>
+    <string name="einstellungen_benachrichtigung_ton_summary">Soll die Benachrichtigung Akustisch erfolgen</string>
+    <string name="einstellungen_benachrichtigung_led_title">LED</string>
+    <string name="einstellungen_benachrichtigung_led_key">benachrichtigungsled</string>
+    <string name="einstellungen_benachrichtigung_led_summary">Soll die LED bei der benachrichtigung blinken.</string>
 
-
-    <array name="entries_list_preference">
-        <item>A</item>
-        <item>B</item>
-        <item>C</item>
+    <string name="einstellungen_benachrichtigung_farbe_title">LED Farbe</string>
+    <string name="einstellungen_benachrichtigung_farbe_key">benachrichtigungfarbe</string>
+    <string name="einstellungen_benachrichtigung_farbe_summary">In welcher Farbe soll die LED blinken.\nNicht alle Handys können alle Farben darstellen.</string>
+    <string name="einstellungen_benachrichtigung_farbe_dialog">Bitte Farbe auswählen.</string>
+    <array name="einstellungen_benachrichtigung_farbe">
+        <item>Blau</item>
+        <item>Cyan</item>
+        <item>Rot</item>
+        <item>Grün</item>
+        <item>Weiß</item>
+        <item>Magenta</item>
+        <item>Gelb</item>
     </array>
-    <array name="entryvalues_list_preference">
-        <item>AA</item>
-        <item>BB</item>
-        <item>CC</item>
+
+    <array name="einstellungen_benachrichtigung_farbe_value">
+        <item>BLUE</item>
+        <item>CYAN</item>
+        <item>RED</item>
+        <item>GREEN</item>
+        <item>WHITE</item>
+        <item>MAGENTA</item>
+        <item>YELLOW</item>
     </array>
     <!-- /Recourcen Einstellungen -->
 
