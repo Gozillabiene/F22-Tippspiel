@@ -56,7 +56,7 @@ public class Fragment3_Ubersicht extends Fragment {
                     String pass= FunktionenAllgemein.md5(((MainActivity)getActivity()).passwort());
 
                     if(position >= 1) {
-                        if(FunktionenAllgemein.isURLReachable(getActivity())==true) {
+                        if(FunktionenAllgemein.isURLReachable(getActivity())) {
 
                             datenSenden(ben, pass, "ubersicht", item, getString(R.string.saison));
                         }
@@ -92,8 +92,6 @@ public class Fragment3_Ubersicht extends Fragment {
 
         String[] result=null;
         result = input.split("#@@#");
-//        result[0]=result[0].replaceAll("[\\D]","");
-System.out.println(input);
 
         mTable1 = new TableGenerator(getActivity());
         layMain1 = (HorizontalScrollView)fraglayoutv3.findViewById(R.id.table1);

@@ -5,11 +5,15 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.icu.util.TimeZone;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
@@ -289,6 +293,11 @@ public class MainActivity extends AppCompatActivity
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
         backgroundWorker.execute(type, benutzername(), passwort());
 
+        Intent intentSendTextToWidget = new Intent(MainActivity.this,WidgetProvider1.class);
+        intentSendTextToWidget.setAction(AppWidgetManager.EXTRA_CUSTOM_EXTRAS);
+        intentSendTextToWidget.putExtra("benutzername",benutzername());
+        sendBroadcast(intentSendTextToWidget);
+
     }
 
     public String benutzername(){
@@ -516,17 +525,27 @@ public class MainActivity extends AppCompatActivity
         PendingIntent wtdSServicePendingIntent = PendingIntent.getService(this, 0, wtdSServiceIntent, 0);
 
         //Wie gross soll der Intervall sein?
-        long interval = DateUtils.MINUTE_IN_MILLIS * 2; // Alle 2 Minuten
+        long interval = DateUtils.MINUTE_IN_MILLIS * 60; // Alle 60 Minuten
 
         //Wann soll der Service das erste Mal gestartet werden?
-        long firstStart = System.currentTimeMillis() + interval;
+        //long firstStart = System.currentTimeMillis() + interval;
+        long firstStart = FunktionenAllgemein.getNextHour();
 
         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
         //am.set(AlarmManager.RTC, firstStart, wtdSServicePendingIntent);
-        //am.setRepeating(AlarmManager.RTC_WAKEUP, firstStart, interval,
-        //											wtdSServicePendingIntent);
-        am.setInexactRepeating(AlarmManager.RTC, firstStart, interval,
-                wtdSServicePendingIntent);
+        //am.setRepeating(AlarmManager.RTC_WAKEUP, firstStart, interval, wtdSServicePendingIntent);
+        am.setInexactRepeating(AlarmManager.RTC, firstStart, interval, wtdSServicePendingIntent);
 
     }
+
+    private void getOffset(){
+        long sysTime = 0;
+        sysTime = System.currentTimeMillis() ;
+
+
+
+
+    }
+
 }
