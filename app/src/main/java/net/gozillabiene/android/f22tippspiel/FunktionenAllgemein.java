@@ -21,6 +21,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.concurrent.ExecutionException;
 
 
 public class FunktionenAllgemein {
@@ -109,6 +110,16 @@ public class FunktionenAllgemein {
         //return String.valueOf(date.getTime());
 
     }
+    public static String datenSenden(String benutzer,String pass,String url,String item,String saison) throws ExecutionException, InterruptedException {
+
+        String output=null;
+        output = new AuslesenWeb()
+                .execute(benutzer,pass,url,item,saison)
+                .get();
+
+        return output;
+    }
+
 
     public static  void checkPermissions(final Context context,final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE) {
         MainActivity ma = (MainActivity) context;
@@ -142,16 +153,15 @@ public class FunktionenAllgemein {
                             "Die App wird jetzt beendet.")
                 .setIcon(R.drawable.ic_error_outline_black_24dp)
                 .setCancelable(false)
-                .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-
-                                MainActivity ma = (MainActivity) context;
-                                ma.finish();
+                                dialog.dismiss();
+                                ((Activity) context).finish();
                             }
                         }
                 );
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
+        alertDialogBuilder.show();
+
     }
     static public boolean isURLReachable(Context context) {
 

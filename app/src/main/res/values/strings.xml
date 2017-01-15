@@ -3,7 +3,7 @@
     <!-- Common -->
     <string name="app_name">F22 Tippspiel</string>
 
-    <string name="versionName">2.0.2</string>
+    <string name="versionName">2.0.3</string>
     <integer name="versionCode">1</integer>
     <string name="saison">1617</string>
 
@@ -29,6 +29,11 @@
     <string name="nav_anleitung">Anleitung</string>
     <string name="nav_hilfe">Hilfe</string>
     <!-- /Navigation -->
+
+    <!-- Seite Start -->
+    <string name="st_image">Bild</string>
+    <string name="st_version">Version : </string>
+    <!-- Seite Start -->
 
     <!-- Seite Hilfe -->
     <string name="hilfetext0"></string>
@@ -86,6 +91,9 @@
     <string name="einstellungen_benachrichtigung_led_title">LED</string>
     <string name="einstellungen_benachrichtigung_led_key">benachrichtigungsled</string>
     <string name="einstellungen_benachrichtigung_led_summary">Soll die LED bei der benachrichtigung blinken.</string>
+    <string name="einstellungen_benachrichtigung_vib_title">Vibration</string>
+    <string name="einstellungen_benachrichtigung_vib_key">benachrichtigungsvib</string>
+    <string name="einstellungen_benachrichtigung_vib_summary">Soll das Telefon Vibrieren bei einer benachrichtigung.</string>
 
     <string name="einstellungen_benachrichtigung_farbe_title">LED Farbe</string>
     <string name="einstellungen_benachrichtigung_farbe_key">benachrichtigungfarbe</string>

@@ -20,6 +20,14 @@
             android:defaultValue="false" />
 
         <CheckBoxPreference
+            android:key="@string/einstellungen_benachrichtigung_vib_key"
+            android:dependency="@string/einstellungen_benachrichtigung_key"
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:title="@string/einstellungen_benachrichtigung_vib_title"
+            android:summary="@string/einstellungen_benachrichtigung_vib_summary"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
             android:key="@string/einstellungen_benachrichtigung_led_key"
             android:dependency="@string/einstellungen_benachrichtigung_key"
             android:layout="?android:attr/preferenceLayoutChild"

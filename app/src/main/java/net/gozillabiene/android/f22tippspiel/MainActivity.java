@@ -539,13 +539,4 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private void getOffset(){
-        long sysTime = 0;
-        sysTime = System.currentTimeMillis() ;
-
-
-
-
-    }
-
 }

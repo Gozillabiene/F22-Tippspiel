@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.IBinder;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v7.app.NotificationCompat;
 
@@ -55,6 +56,8 @@ public class WTDStartedService extends Service {
         Boolean benachrichtigungTonOn = sPrefs.getBoolean(prefBenachrichtigungTonKey,false);
         String prefBenachrichtigungLEDKey = getString(R.string.einstellungen_benachrichtigung_led_key);
         Boolean benachrichtigungLEDOn = sPrefs.getBoolean(prefBenachrichtigungLEDKey,false);
+        String prefBenachrichtigungVibKey = getString(R.string.einstellungen_benachrichtigung_vib_key);
+        Boolean benachrichtigungVibOn = sPrefs.getBoolean(prefBenachrichtigungVibKey,false);
 
         String prefBenachrichtigungLEDfarbeKey = getString(R.string.einstellungen_benachrichtigung_farbe_key);
         String benachrichtigungLEDFarbe = sPrefs.getString(prefBenachrichtigungLEDfarbeKey,"CYAN");
@@ -72,10 +75,15 @@ public class WTDStartedService extends Service {
             mBuilder.setContentIntent(pi);
             if(benachrichtigungTonOn){mBuilder.setSound(soundUri);}
             if(benachrichtigungLEDOn){mBuilder.setLights(farbe, 500, 1000);}
-            mBuilder.setContentText("Benachrichtigung\nTest");
+            mBuilder.setContentText("Benachrichtigung\n\nTest");
 
             NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             mNotificationManager.notify(4150, mBuilder.build());
+            if(benachrichtigungVibOn){
+                Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(250);
+
+            }
         }
 
     }
