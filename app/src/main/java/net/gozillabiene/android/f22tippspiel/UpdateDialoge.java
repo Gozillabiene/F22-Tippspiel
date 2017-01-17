@@ -5,7 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
-public class DialogeAnzeigen {
+public class UpdateDialoge {
 
     public static void neueHauptversion(final Context context, String version,final int neueVersion, int a,int c,int d,final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE){
 

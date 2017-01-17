@@ -110,16 +110,15 @@ public class FunktionenAllgemein {
         //return String.valueOf(date.getTime());
 
     }
-    public static String datenSenden(String benutzer,String pass,String url,String item,String saison) throws ExecutionException, InterruptedException {
-
-        String output=null;
-        output = new AuslesenWeb()
-                .execute(benutzer,pass,url,item,saison)
-                .get();
-
+    public static String datenSenden(Context context,String benutzer,String pass,String url,String item,String saison) throws ExecutionException, InterruptedException {
+        String output = null;
+        if(isURLReachable(context)) {
+            output = new AuslesenWeb()
+                    .execute(benutzer, pass, url, item, saison)
+                    .get();
+        }
         return output;
     }
-
 
     public static  void checkPermissions(final Context context,final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE) {
         MainActivity ma = (MainActivity) context;
@@ -155,6 +154,7 @@ public class FunktionenAllgemein {
                 .setCancelable(false)
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+                                //TODO Alert Dialog vernünftig beenden bevor die Activity beendet wird.
                                 dialog.dismiss();
                                 ((Activity) context).finish();
                             }

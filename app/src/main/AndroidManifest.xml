@@ -38,13 +38,13 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".WTDStartedService">
+        <service android:name=".NotificationDisplayService">
             <intent-filter>
                 <action android:name="net.gozillabiene.amdroid.f22tippspiel.WTDStartedActivity" />
             </intent-filter>
         </service>
 
-        <receiver android:name=".WTDBootReciever">
+        <receiver android:name=".NotificationDisplayReciever">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED">
                 </action>

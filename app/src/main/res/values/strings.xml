@@ -121,4 +121,9 @@
     <!-- /Recourcen Einstellungen -->
 
     <string name="nichtangemeldet">nicht angemeldet</string>
+    
+    
+    <!-- Keys-->
+    <string name="NOTIFICATION_ID_KEY">noticicationKey</string>
+    <!-- /Keys-->
 </resources>

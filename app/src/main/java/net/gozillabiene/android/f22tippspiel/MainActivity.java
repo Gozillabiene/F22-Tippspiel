@@ -4,16 +4,15 @@ import android.app.AlarmManager;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.appwidget.AppWidgetManager;
-import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.icu.util.TimeZone;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
@@ -60,9 +59,14 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         starteService();
 
-        FunktionenNofify.notyfiClear(context);
+        if(getIntent().hasExtra(getString(R.string.NOTIFICATION_ID_KEY))){
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.cancel(getIntent().getIntExtra(getString(R.string.NOTIFICATION_ID_KEY), 0));
+        }
 
     if(FunktionenAllgemein.isURLReachable(context)) {
         versionsKontrolle();
@@ -463,9 +467,11 @@ public class MainActivity extends AppCompatActivity
 
 
         if ( a != b ) {
-            DialogeAnzeigen.neueHauptversion(context,version,neueVersion,a,c,d,MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+            UpdateDialoge.neueHauptversion(context,version,neueVersion,a,c,d,MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+            //mProgressDialog.dismiss();
         }else if(dieseVersion < neueVersion){
-            DialogeAnzeigen.neueVersion(context,version,neueVersion,a,c,d,MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+            UpdateDialoge.neueVersion(context,version,neueVersion,a,c,d,MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+            //mProgressDialog.dismiss();
         }
     }
 
@@ -521,7 +527,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void starteService(){
-        Intent wtdSServiceIntent = new Intent(this, WTDStartedService.class);
+        Intent wtdSServiceIntent = new Intent(this, NotificationDisplayService.class);
         PendingIntent wtdSServicePendingIntent = PendingIntent.getService(this, 0, wtdSServiceIntent, 0);
 
         //Wie gross soll der Intervall sein?

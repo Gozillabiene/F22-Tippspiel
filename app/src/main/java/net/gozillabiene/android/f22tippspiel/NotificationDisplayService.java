@@ -11,11 +11,14 @@ import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.IBinder;
-import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v7.app.NotificationCompat;
 
-public class WTDStartedService extends Service {
+import static android.app.Notification.DEFAULT_VIBRATE;
+
+public class NotificationDisplayService extends Service {
+
+    final int NOTIFICATION_ID = 4150;
     public IBinder onBind(Intent intent) {
         // Fuer dieses Tutorial irrelevant. Gehoert zu bounded Services.
         return null;
@@ -28,15 +31,11 @@ public class WTDStartedService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-//        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-//        PowerManager.WakeLock wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "My PARTIAL_WAKE_LOCK");
-//        wakeLock.acquire();
-
         // Unsere auszufuehrende Methode.
-        updateData();
+        displayNotification("Dies ist eine Test-Notification mit einem seeehr langen Text, den man ausklappen muss.");
+
         // Nachdem unsere Methode abgearbeitet wurde, soll sich der Service
         // selbst stoppen.
-//        wakeLock.release();
         stopSelf();
 
         // Um den Service laufen zu lassen, bis er explizit gestoppt wird,
@@ -47,7 +46,7 @@ public class WTDStartedService extends Service {
     @Override
     public void onDestroy() {
     }
-    public void updateData(){
+    public void displayNotification(String text){
 
         SharedPreferences sPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         String prefBenachrichtigungKey = getString(R.string.einstellungen_benachrichtigung_key);
@@ -67,24 +66,22 @@ public class WTDStartedService extends Service {
         if(benachrichtigungOn) {
             Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             Intent notificationIntent = new Intent(this, MainActivity.class);
-            PendingIntent pi = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+            notificationIntent.putExtra(getString(R.string.NOTIFICATION_ID_KEY), NOTIFICATION_ID);
+            PendingIntent pi = PendingIntent.getActivity(this, 1, notificationIntent, 0);
             NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
             mBuilder.setSmallIcon(R.drawable.ic_action_name);
             mBuilder.setContentTitle(getString(R.string.app_name));
             mBuilder.setOngoing(false);
             mBuilder.setContentIntent(pi);
+            mBuilder.addAction(R.drawable.ic_open_mainactivity_action ,"MainActivity öffnen", pi);
+            if(benachrichtigungVibOn){mBuilder.setVibrate(new long[]{DEFAULT_VIBRATE});}
             if(benachrichtigungTonOn){mBuilder.setSound(soundUri);}
             if(benachrichtigungLEDOn){mBuilder.setLights(farbe, 500, 1000);}
-            mBuilder.setContentText("Benachrichtigung\n\nTest");
+            mBuilder.setContentText(text);
+            mBuilder.setStyle( new NotificationCompat.BigTextStyle().bigText(text));
 
             NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            mNotificationManager.notify(4150, mBuilder.build());
-            if(benachrichtigungVibOn){
-                Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
-                v.vibrate(250);
-
-            }
+            mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
         }
-
     }
 }

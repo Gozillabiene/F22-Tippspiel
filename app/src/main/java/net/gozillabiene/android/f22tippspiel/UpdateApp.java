@@ -1,13 +1,13 @@
 package net.gozillabiene.android.f22tippspiel;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,7 +15,10 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class UpdateApp extends AsyncTask<String,Void,Void> {
+public class UpdateApp extends AsyncTask<String,Integer,Void> {
+    ProgressDialog mProgressDialog;
+
+
     private Context context;
     public void setContext(Context contextf){
         context = contextf;
@@ -31,7 +34,6 @@ public class UpdateApp extends AsyncTask<String,Void,Void> {
             c.setRequestMethod("GET");
             c.setDoOutput(true);
             c.connect();
-
             String PATH = Environment.getExternalStorageDirectory().getPath()+"/Download/";
             File file = new File(PATH);
             file.mkdirs();
@@ -42,10 +44,19 @@ public class UpdateApp extends AsyncTask<String,Void,Void> {
             FileOutputStream fos = new FileOutputStream(outputFile);
 
             InputStream is = c.getInputStream();
+            int fileLength = c.getContentLength();
 
             byte[] buffer = new byte[1024];
             int len1 = 0;
+            long total = 0;
+
             while ((len1 = is.read(buffer)) != -1) {
+                total += len1;
+
+                if (fileLength > 0){
+                    publishProgress((int) (total * 100 / fileLength));
+                }
+
                 fos.write(buffer, 0, len1);
             }
             fos.close();
@@ -61,6 +72,26 @@ public class UpdateApp extends AsyncTask<String,Void,Void> {
 //            Toast.makeText(context,"Update Fehler : "+ e.getMessage(),Toast.LENGTH_LONG).show();
             Log.e("UpdateAPP", "Update error! " + e.getMessage());
         }
+        mProgressDialog.dismiss();
         return null;
+    }
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        // Increment Progress Dialog with the Update
+        // from the doInBackgroundMethod
+        mProgressDialog.setProgress(values[0]);
+        System.out.println(">>>>>>>>"+values[0]);
+    }
+    @Override
+    protected void onPreExecute() {
+        // Setup Progress Dialog
+        mProgressDialog = new ProgressDialog(context);
+        mProgressDialog.setMessage("neue version : ");
+        mProgressDialog.setTitle("Download");
+        mProgressDialog.setIndeterminate(false);
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.show();
+        mProgressDialog.setProgress(30);
     }
 }

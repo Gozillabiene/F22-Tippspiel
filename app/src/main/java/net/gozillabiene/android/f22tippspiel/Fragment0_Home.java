@@ -1,6 +1,7 @@
 package net.gozillabiene.android.f22tippspiel;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,10 +29,9 @@ public class Fragment0_Home extends Fragment {
         String ben=((MainActivity)getActivity()).benutzername();
         String pass= FunktionenAllgemein.md5(((MainActivity)getActivity()).passwort());
 
-        if(FunktionenAllgemein.isURLReachable(getActivity())) {
             String output = null;
             try {
-                output = FunktionenAllgemein.datenSenden(ben,pass,"naechstes_spiel","1",getString(R.string.saison));
+                output = FunktionenAllgemein.datenSenden(getActivity(),ben,pass,"naechstes_spiel","1",getString(R.string.saison));
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
@@ -41,7 +41,6 @@ public class Fragment0_Home extends Fragment {
             TextView tv = (TextView) fraglayoutv0.findViewById(R.id.textView8);
             tv.setText("Nächstes Spiel beginnt am : \n"+FunktionenAllgemein.getDate(result[0]));
 
-        }
 
             return fraglayoutv0;
     }

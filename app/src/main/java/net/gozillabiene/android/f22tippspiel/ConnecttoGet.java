@@ -21,8 +21,8 @@ public class ConnecttoGet {
             URL url = new URL(urlstring);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-            //conn.setReadTimeout(1000 /* milliseconds */);
-            //conn.setConnectTimeout(5000 /* milliseconds */);
+            conn.setReadTimeout(1000 /* milliseconds */);
+            conn.setConnectTimeout(5000 /* milliseconds */);
             conn.setRequestMethod("GET");
 
             conn.setDoInput(true);
