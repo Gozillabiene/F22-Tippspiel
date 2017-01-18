@@ -51,6 +51,42 @@ public class FunktionenAllgemein {
         return "";
     }
 
+    public static Long getFirstTime() {
+        // Timestamp auf 10 uhr setzen, wenn es nach 10 uhr ist am nächsten Tag
+        DateFormat sdf;
+        Date netDate;
+        long sysTime = System.currentTimeMillis();
+
+        sdf = new SimpleDateFormat("kk");
+        netDate = (new Date(sysTime));
+        int stundeInt = Integer.parseInt(sdf.format(netDate));
+        int w;
+
+        if (stundeInt >= 10) {
+            w = 1;
+        } else {
+            w = 0;
+        }
+        sdf = new SimpleDateFormat("dd");
+        netDate = (new Date(sysTime));
+        int tagInt = Integer.parseInt(sdf.format(netDate)) + w;
+        String tag = String.valueOf(tagInt);
+
+        sdf = new SimpleDateFormat("MM");String monat = sdf.format((new Date(sysTime)));
+        sdf = new SimpleDateFormat("yyyy");String jahr = sdf.format((new Date(sysTime)));
+
+        long firsttime=0;
+        DateFormat dfm = new SimpleDateFormat("dd.MM.yyyy kk.mm.ss.SSS");
+        String xtime = tag+"."+monat+"."+jahr+" 10.00.00.000";
+        try {
+            firsttime = dfm.parse(xtime).getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return firsttime;
+
+    }
     public static Long getNextHour() {
         DateFormat sdf;
         Date netDate;

@@ -6,7 +6,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.ProgressDialog;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
@@ -531,11 +530,13 @@ public class MainActivity extends AppCompatActivity
         PendingIntent wtdSServicePendingIntent = PendingIntent.getService(this, 0, wtdSServiceIntent, 0);
 
         //Wie gross soll der Intervall sein?
-        long interval = DateUtils.MINUTE_IN_MILLIS * 60; // Alle 60 Minuten
+        //long interval = DateUtils.MINUTE_IN_MILLIS * 60; // Alle 60 Minuten
+        long interval = DateUtils.HOUR_IN_MILLIS * 24; // einmal am Tag
 
         //Wann soll der Service das erste Mal gestartet werden?
-        //long firstStart = System.currentTimeMillis() + interval;
-        long firstStart = FunktionenAllgemein.getNextHour();
+        //long firstStart = System.currentTimeMillis() ;
+        //long firstStart = FunktionenAllgemein.getNextHour(); // start jede std.
+        long firstStart = FunktionenAllgemein.getFirstTime(); // Start um 10 Uhr
 
         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 

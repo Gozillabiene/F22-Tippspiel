@@ -17,9 +17,11 @@ public class NotificationDisplayReciever extends BroadcastReceiver {
             Intent wtdSServiceIntent = new Intent(context, NotificationDisplayService.class);
             PendingIntent wtdSServicePendingIntent = PendingIntent.getService(context, 0, wtdSServiceIntent, 0);
 
-            long interval = DateUtils.MINUTE_IN_MILLIS * 60; // 60 Minuten
-            //long firstStart = System.currentTimeMillis() + interval;
-            long firstStart = FunktionenAllgemein.getNextHour();
+            //long interval = DateUtils.MINUTE_IN_MILLIS * 60; // 60 Minuten
+            long interval = DateUtils.HOUR_IN_MILLIS * 24; // einmal am Tag
+
+            //long firstStart = FunktionenAllgemein.getNextHour();
+            long firstStart = FunktionenAllgemein.getFirstTime(); // Start um 10 Uhr
 
             AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             am.setInexactRepeating(AlarmManager.RTC, firstStart, interval, wtdSServicePendingIntent);
