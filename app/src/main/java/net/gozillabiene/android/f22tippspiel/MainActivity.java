@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity
     public Fragment6_Hilfe fragment6;
     public Fragment98_Einstellungen fragment98;
     public Fragment99_Login fragment99;
+    public Fragment100_nichts fragment100;
     public FragmentManager fragmanager;
     public FragmentTransaction fragtrans;
     public int neueVersion;
@@ -79,7 +80,9 @@ public class MainActivity extends AppCompatActivity
 
         if(FunktionenAllgemein.isURLReachable(context)) {
             onLogin();
+            istAdmin();
         }
+
     }
     public void datenSpeichern1(View v) {
         TextView tvz1 = (TextView) findViewById(R.id.time1);
@@ -466,6 +469,41 @@ public class MainActivity extends AppCompatActivity
         intentSendTextToWidget.putExtra("benutzername",benutzername());
         sendBroadcast(intentSendTextToWidget);
 
+
+        }
+    public void istAdmin(){
+
+        String output=null;
+        try {
+            output = new AuslesenWeb()
+                    .execute(benutzername(),FunktionenAllgemein.md5(passwort()),"ist_admin","1",getString(R.string.saison))
+                    .get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        String[] result = output.split("#@@#");
+
+        if(result[1].replaceAll("[\\D]", "").equals("1")) {
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+            navigationView.getMenu().findItem(R.id.nav_admin).setVisible(true);
+            System.out.println("Admin");
+        }else{
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+            navigationView.getMenu().findItem(R.id.nav_admin).setVisible(false);
+            System.out.println("kein Admin");
+        }
+        if(result[0].equals("true")) {
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+            navigationView.getMenu().findItem(R.id.nav_ubersicht).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_tipps).setVisible(true);
+        }else{
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+            navigationView.getMenu().findItem(R.id.nav_ubersicht).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_tipps).setVisible(false);
+        }
     }
 
     public String benutzername(){
@@ -664,6 +702,7 @@ public class MainActivity extends AppCompatActivity
         fragment6 = (Fragment6_Hilfe) Fragment.instantiate(this, Fragment6_Hilfe.class.getName(), null);
         fragment98 = (Fragment98_Einstellungen) Fragment.instantiate(this, Fragment98_Einstellungen.class.getName(), null);
         fragment99 = (Fragment99_Login) Fragment.instantiate(this, Fragment99_Login.class.getName(), null);
+        fragment100 = (Fragment100_nichts) Fragment.instantiate(this, Fragment100_nichts.class.getName(), null);
 
         fragmanager = getFragmentManager();
         fragtrans = fragmanager.beginTransaction();

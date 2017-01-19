@@ -16,24 +16,48 @@ public class Fragment99_Login extends PreferenceFragment {
 
         addPreferencesFromResource(R.xml.login);
 
-        EditTextPreference etp =(EditTextPreference)findPreference("benutzername");
+        EditTextPreference etp =(EditTextPreference)findPreference(getText(R.string.login_benutzername_key));
         etp.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener()
         {
-
-
             public boolean onPreferenceChange(Preference preference, Object newValue)
             {
+
+
                 Activity activity = getActivity();
-                //if(activity instanceof MainActivity) {
+                if(activity instanceof MainActivity) {
                     MainActivity myactivity = (MainActivity) activity;
-                    myactivity.onLogin();
-                //}
+                    myactivity.fragmanager = getFragmentManager();
+                    myactivity.fragtrans = myactivity.fragmanager.beginTransaction();
+                    myactivity.fragtrans.replace(R.id.HauptLayout, myactivity.fragment100);
+                    myactivity.fragtrans.commit();
+                    //myactivity.onLogin();
+                    myactivity.istAdmin();
+                }
                 return true;
 
             }
         });
+        EditTextPreference et1 =(EditTextPreference)findPreference(getText(R.string.login_passwort_key));
+        et1.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener()
+        {
+            public boolean onPreferenceChange(Preference preference, Object newValue)
+            {
 
 
+                Activity activity = getActivity();
+                if(activity instanceof MainActivity) {
+                    MainActivity myactivity = (MainActivity) activity;
+                    myactivity.fragmanager = getFragmentManager();
+                    myactivity.fragtrans = myactivity.fragmanager.beginTransaction();
+                    myactivity.fragtrans.replace(R.id.HauptLayout, myactivity.fragment100);
+                    myactivity.fragtrans.commit();
+                    //myactivity.onLogin();
+                    myactivity.istAdmin();
+                }
+                return true;
+
+            }
+        });
 
     }
 
@@ -45,7 +69,7 @@ public class Fragment99_Login extends PreferenceFragment {
         if(activity instanceof MainActivity){
             MainActivity myactivity = (MainActivity) activity;
             myactivity.onLogin();
-
+            myactivity.istAdmin();
 
         }
 
