@@ -55,7 +55,7 @@ public String item;
                     String ben=((MainActivity)getActivity()).benutzername();
                     String pass= FunktionenAllgemein.md5(((MainActivity)getActivity()).passwort());
 
-                    if(FunktionenAllgemein.isURLReachable(getActivity())==true) {
+                    if(FunktionenAllgemein.isURLReachable(getActivity())) {
 
                         datenSenden(ben, pass, "tipp_lesen", item, getString(R.string.saison));
                     }

@@ -15,7 +15,6 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/nav_ubersicht" />
         <item
-            android:visible="false"
             android:id="@+id/nav_admin"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/nav_admin" />

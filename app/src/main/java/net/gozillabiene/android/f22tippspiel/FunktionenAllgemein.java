@@ -231,4 +231,6 @@ public class FunktionenAllgemein {
         isOffline(context);
         return false;
     }
+
+
 }

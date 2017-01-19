@@ -73,10 +73,10 @@ public class NotificationDisplayService extends Service {
                         jokerGesetzt = "Nein";
                     }
 
-                    String[] events = {"Spieltag :\t\t\t\t" + spieltag1[0],
-                            "Nächstes Spiel :\t\t" + FunktionenAllgemein.getDate(spiel1[0]),
-                            "Alles getippt :\t\t" + spielGesetzt,
-                            "Joker gesetzt :\t\t" + jokerGesetzt};
+                    String[] events = {"Spieltag :\u0009\u0009\u0009\u0009" + spieltag1[0],
+                                       "Nächstes Spiel :\u0009" + FunktionenAllgemein.getDate(spiel1[0]),
+                                       "Alles getippt :\u0009" + spielGesetzt,
+                                       "Joker gesetzt :\u0009" + jokerGesetzt};
 
 
                     // Unsere auszufuehrende Methode.
