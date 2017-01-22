@@ -3,7 +3,7 @@
     <!-- Common -->
     <string name="app_name">F22 Tippspiel</string>
 
-    <string name="versionName">2.0.6</string>
+    <string name="versionName">2.0.8</string>
     <integer name="versionCode">1</integer>
     <string name="saison">1617</string>
 
