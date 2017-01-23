@@ -13,6 +13,9 @@
     <color name="row_background1">#ffffff</color>
     <color name="row_background2">#c9c9c9</color>
     <color name="row_background3">#ff6060</color>
+    <color name="row_background4">#ffff60</color>
+    <color name="row_background5">#92b0f0</color>
+    <color name="row_background6">#20ff3f</color>
 
     <color name="text_black">#000000</color>
 

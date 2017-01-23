@@ -12,9 +12,6 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
 
@@ -225,7 +222,7 @@ public class Fragment3_Ubersicht extends Fragment {
             sortGesPunkte[sortGesPunkte.length - k - 1] = temp;
         }
         int[] ergPlatz = removeDuplicates(sortGesPunkte);
-
+        String platzfarbe;
         for(int i=0;i<=35;i++) {
             if((xx+13 < result.length) && (result[xx+13] != null)) {
                 row[i][0] = result[xx];
@@ -250,9 +247,13 @@ public class Fragment3_Ubersicht extends Fragment {
                         }
                     }
                 }
+                if(result[xx+10].equals("1")){platzfarbe="##1";
+                }else if(result[xx+10].equals("2")){platzfarbe="##2";
+                }else if(result[xx+10].equals("3")){platzfarbe="##3";
+                }else{platzfarbe="";}
 
-                row[i][10] = result[xx+10];
-                row[i][11] = String.valueOf(gesPunkte[i]); //result[xx+11];
+                row[i][10] = result[xx+10]+platzfarbe;
+                row[i][11] = String.valueOf(gesPunkte[i])+platzfarbe; //result[xx+11];
                 row[i][12] = "";//result[xx+12];
                 row[i][13] = "";//result[xx+13];
                 xx = xx + 14;

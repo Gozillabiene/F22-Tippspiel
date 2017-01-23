@@ -42,6 +42,10 @@ public class TableGenerator {
         Integer col1 = mContext.getResources().getColor(R.color.row_background1);
         Integer col2 = mContext.getResources().getColor(R.color.row_background2);
         Integer col3 = mContext.getResources().getColor(R.color.row_background3);
+        Integer col4 = mContext.getResources().getColor(R.color.row_background4);
+        Integer col5 = mContext.getResources().getColor(R.color.row_background5);
+        Integer col6 = mContext.getResources().getColor(R.color.row_background6);
+
         Integer rowBackground;
 
         for (int iCol = 0; iCol < data.length; iCol++) {
@@ -49,6 +53,7 @@ public class TableGenerator {
 
             String test=data[iCol];
             String check=test.replaceAll("[^**]", "");
+            String check1=test.replaceAll("[^##]", "");
 
             int farbeRes;
             farbeRes=farbe;
@@ -58,9 +63,15 @@ public class TableGenerator {
                 result=data[iCol].split("\\*\\*");
                 data[iCol]=result[0];
                 farbe=3;
-            }else{
-
             }
+            if(check1.length()==2){
+                result=data[iCol].split("##");
+                data[iCol]=result[0];
+                if(result[1].equals("1")){farbe=4;}
+                if(result[1].equals("2")){farbe=5;}
+                if(result[1].equals("3")){farbe=6;}
+            }
+
 
             tvCol.setText(data[iCol]);
             tvCol.setGravity(Gravity.CENTER);
@@ -74,6 +85,12 @@ public class TableGenerator {
                 rowBackground = col2;
             } else if (farbe == 3) {
                 rowBackground = col3;
+            } else if (farbe == 4) {
+                rowBackground = col4;
+            } else if (farbe == 5) {
+                rowBackground = col5;
+            } else if (farbe == 6) {
+                rowBackground = col6;
             } else {
                 rowBackground = col0;
             }

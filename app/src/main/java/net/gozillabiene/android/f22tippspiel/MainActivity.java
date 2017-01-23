@@ -525,7 +525,6 @@ public class MainActivity extends AppCompatActivity
         return passwort;
     }
 
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -641,6 +640,26 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+
+    public boolean aktVersion(int version){
+        boolean rueckgabe=false;
+        String key="versApp";
+        SharedPreferences sPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        String prefVersionKey = key;
+        String prefVersionDefault = "100";
+        String prefVersion = sPrefs.getString(prefVersionKey,prefVersionDefault);
+
+        if(prefVersion.equals(String.valueOf(version))){
+            rueckgabe=true;
+        }
+
+        SharedPreferences.Editor editor = sPrefs.edit();
+        editor.putString(key, String.valueOf(version)).commit();
+
+        return rueckgabe;
+    }
+
     public void versionsKontrolle(){
 
         String version = getString(R.string.versionName);
@@ -668,6 +687,9 @@ public class MainActivity extends AppCompatActivity
         int dieseVersion=(Integer.parseInt(result2[0])*100)+(Integer.parseInt(result2[1])*10)+Integer.parseInt(result2[2]);
         neueVersion =(a*100)+(c*10)+d;
 
+        if(!aktVersion(dieseVersion)){
+            UpdateDialoge.changeLog(context,version);
+        }
 
         if ( a != b ) {
             UpdateDialoge.neueHauptversion(context,version,neueVersion,a,c,d,MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);

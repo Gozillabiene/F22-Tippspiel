@@ -65,6 +65,26 @@ public class UpdateDialoge {
         alertDialog.show();
 
     }
+    public static void changeLog(final Context context, String version){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        alertDialogBuilder.setTitle("Changelog");
+        alertDialogBuilder
+                .setMessage("Neuerungen in der Version "+ version +"\n\n" +
+                        "- Dieser Dialog :-)\n" +
+                        "- Farben der Platzierungen in der Übersicht\n" +
+                        "- kleine Fehler behoben\n")
+                .setIcon(R.drawable.ic_warning_black_24dp)
+                .setCancelable(true)
+                .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+
+    }
 
 
 
