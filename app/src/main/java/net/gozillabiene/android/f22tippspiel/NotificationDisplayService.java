@@ -60,6 +60,8 @@ public class NotificationDisplayService extends Service {
             String spielGesetzt;
             String jokerGesetzt;
 
+//            System.out.println("->"+spiel1[1]+"-->"+getippt1[0]+"->"+getippt1[1]);
+
             if (spiel1[1].equals("true")) {
                 if (getippt1[0].equals("false") || getippt1[1].equals("false")) {
                     if (getippt1[0].equals("true")) {
@@ -165,7 +167,7 @@ public class NotificationDisplayService extends Service {
         String output = null;
         try {
             output = new AuslesenWeb()
-                     .execute(ben,pass,"naechstes_spiel","1",getString(R.string.saison))
+                     .execute(ben,pass,"naechstes_spiel","1",FunktionenAllgemein.getSaison(this))
                      .get();
         } catch (ExecutionException e) {
             e.printStackTrace();
@@ -179,7 +181,7 @@ public class NotificationDisplayService extends Service {
         String output=null;
         try {
             output = new AuslesenWeb()
-                    .execute(ben,pass,"spieltag_getippt",spieltag,getString(R.string.saison))
+                    .execute(ben,pass,"spieltag_getippt",spieltag,FunktionenAllgemein.getSaison(this))
                     .get();
         } catch (InterruptedException e) {
             e.printStackTrace();

@@ -35,7 +35,7 @@ public class Fragment2_Tabelle extends Fragment {
         if(FunktionenAllgemein.isURLReachable(getActivity())) {
 
             try {
-                datenSenden(ben, pass, "tabelle", item, getString(R.string.saison));
+                datenSenden(ben, pass, "tabelle", item, FunktionenAllgemein.getSaison(getActivity()).replaceAll("[\\D]", ""));
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {

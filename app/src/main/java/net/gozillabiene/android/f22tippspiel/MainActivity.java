@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity
     public Fragment4_Admin fragment4;
     public Fragment5_Anleitung fragment5;
     public Fragment6_Hilfe fragment6;
+    public Fragment7_Zusatztipp fragment7;
     public Fragment98_Einstellungen fragment98;
     public Fragment99_Login fragment99;
     public Fragment100_nichts fragment100;
@@ -53,14 +54,14 @@ public class MainActivity extends AppCompatActivity
     private final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1001;
     long backPressedTime = 0;
     public boolean IST_ADMIN = false;
-
+    String saison;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        saison=FunktionenAllgemein.getSaison(context).replaceAll("[\\D]", "");
 
         starteService();
 
@@ -240,7 +241,7 @@ public class MainActivity extends AppCompatActivity
             if(FunktionenAllgemein.isURLReachable(context)) {
 
                 output = new AuslesenWeb()
-                        .execute(benutzername(), FunktionenAllgemein.md5(passwort()), "erg_speichern", newString5, getString(R.string.saison))
+                        .execute(benutzername(), FunktionenAllgemein.md5(passwort()), "erg_speichern", newString5, saison)
                         .get();
             }
         } catch (InterruptedException e) {
@@ -431,13 +432,12 @@ public class MainActivity extends AppCompatActivity
         String newString4 = newString3.replace("ö",ouml);
         String newString5 = newString4.replace("ü",uuml);
 
-
         String output=null;
         try {
             if(FunktionenAllgemein.isURLReachable(context)) {
 
                 output = new AuslesenWeb()
-                        .execute(benutzername(), FunktionenAllgemein.md5(passwort()), "tipp_speichern", newString5, getString(R.string.saison))
+                        .execute(benutzername(), FunktionenAllgemein.md5(passwort()), "tipp_speichern", newString5, saison)
                         .get();
             }
         } catch (InterruptedException e) {
@@ -476,7 +476,7 @@ public class MainActivity extends AppCompatActivity
         String output=null;
         try {
             output = new AuslesenWeb()
-                    .execute(benutzername(),FunktionenAllgemein.md5(passwort()),"ist_admin","1",getString(R.string.saison))
+                    .execute(benutzername(),FunktionenAllgemein.md5(passwort()),"ist_admin","1",saison)
                     .get();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -489,20 +489,20 @@ public class MainActivity extends AppCompatActivity
         if(result[1].replaceAll("[\\D]", "").equals("1")) {
             NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
             navigationView.getMenu().findItem(R.id.nav_admin).setVisible(true);
-            System.out.println("Admin");
         }else{
             NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
             navigationView.getMenu().findItem(R.id.nav_admin).setVisible(false);
-            System.out.println("kein Admin");
         }
         if(result[0].equals("true")) {
             NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
             navigationView.getMenu().findItem(R.id.nav_ubersicht).setVisible(true);
             navigationView.getMenu().findItem(R.id.nav_tipps).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_zusatztipp).setVisible(true);
         }else{
             NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
             navigationView.getMenu().findItem(R.id.nav_ubersicht).setVisible(false);
             navigationView.getMenu().findItem(R.id.nav_tipps).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_zusatztipp).setVisible(false);
         }
     }
 
@@ -613,8 +613,12 @@ public class MainActivity extends AppCompatActivity
             fragtrans = fragmanager.beginTransaction();
             fragtrans.replace(R.id.HauptLayout, fragment6);
             fragtrans.commit();
+        } else if (id == R.id.nav_zusatztipp) {
+            fragmanager = getFragmentManager();
+            fragtrans = fragmanager.beginTransaction();
+            fragtrans.replace(R.id.HauptLayout, fragment7);
+            fragtrans.commit();
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -655,7 +659,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         SharedPreferences.Editor editor = sPrefs.edit();
-        editor.putString(key, String.valueOf(version)).commit();
+        editor.putString(key, String.valueOf(version)).apply();
 
         return rueckgabe;
     }
@@ -722,6 +726,7 @@ public class MainActivity extends AppCompatActivity
         fragment4 = (Fragment4_Admin) Fragment.instantiate(this, Fragment4_Admin.class.getName(), null);
         fragment5 = (Fragment5_Anleitung) Fragment.instantiate(this, Fragment5_Anleitung.class.getName(), null);
         fragment6 = (Fragment6_Hilfe) Fragment.instantiate(this, Fragment6_Hilfe.class.getName(), null);
+        fragment7 = (Fragment7_Zusatztipp) Fragment.instantiate(this, Fragment7_Zusatztipp.class.getName(), null);
         fragment98 = (Fragment98_Einstellungen) Fragment.instantiate(this, Fragment98_Einstellungen.class.getName(), null);
         fragment99 = (Fragment99_Login) Fragment.instantiate(this, Fragment99_Login.class.getName(), null);
         fragment100 = (Fragment100_nichts) Fragment.instantiate(this, Fragment100_nichts.class.getName(), null);
@@ -757,7 +762,7 @@ public class MainActivity extends AppCompatActivity
         PendingIntent wtdSServicePendingIntent = PendingIntent.getService(this, 0, wtdSServiceIntent, 0);
 
         //Wie gross soll der Intervall sein?
-        //long interval = DateUtils.MINUTE_IN_MILLIS * 60; // Alle 60 Minuten
+        //long interval = DateUtils.MINUTE_IN_MILLIS * 2; // Alle 2 Minuten
         long interval = DateUtils.HOUR_IN_MILLIS * 24; // einmal am Tag
 
         //Wann soll der Service das erste Mal gestartet werden?

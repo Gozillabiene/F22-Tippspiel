@@ -67,6 +67,7 @@ public class TableGenerator {
             if(check1.length()==2){
                 result=data[iCol].split("##");
                 data[iCol]=result[0];
+                if(result[1].equals("4")){farbe=3;}
                 if(result[1].equals("1")){farbe=4;}
                 if(result[1].equals("2")){farbe=5;}
                 if(result[1].equals("3")){farbe=6;}

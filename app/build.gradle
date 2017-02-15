@@ -10,7 +10,7 @@ android {
         }
     }
     compileSdkVersion 24
-    buildToolsVersion '23.0.2'
+    buildToolsVersion '25.0.2'
     useLibrary "org.apache.http.legacy"
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
@@ -18,7 +18,7 @@ android {
     }
     defaultConfig {
         applicationId "net.gozillabiene.android.f22tippspiel"
-        minSdkVersion 19
+        minSdkVersion 20
         targetSdkVersion 24
         versionCode 1
         //versionName "1.0"

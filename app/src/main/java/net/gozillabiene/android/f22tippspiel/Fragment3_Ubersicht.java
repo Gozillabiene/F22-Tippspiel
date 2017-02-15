@@ -59,7 +59,7 @@ public class Fragment3_Ubersicht extends Fragment {
                     if(position >= 1) {
                         if(FunktionenAllgemein.isURLReachable(getActivity())) {
 
-                            datenSenden(ben, pass, "ubersicht", item, getString(R.string.saison));
+                            datenSenden(ben, pass, "ubersicht", item, FunktionenAllgemein.getSaison(getActivity()).replaceAll("[\\D]", ""));
                         }
                     }
                 } catch (ExecutionException e) {

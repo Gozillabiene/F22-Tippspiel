@@ -14,7 +14,6 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
 
@@ -42,7 +41,7 @@ public class Fragment4_Admin extends Fragment {
             String output=null;
             try {
                 output = new AuslesenWeb()
-                        .execute(ben,pass,"ist_admin",item,getString(R.string.saison))
+                        .execute(ben,pass,"ist_admin",item,FunktionenAllgemein.getSaison(getActivity()).replaceAll("[\\D]", ""))
                         .get();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -93,7 +92,7 @@ public class Fragment4_Admin extends Fragment {
 
                     if(FunktionenAllgemein.isURLReachable(getActivity())) {
 
-                        datenSenden(ben, pass, "tipp_lesen", item, getString(R.string.saison));
+                        datenSenden(ben, pass, "tipp_lesen", item,FunktionenAllgemein.getSaison(getActivity()).replaceAll("[\\D]", ""));
                     }
                 } catch (ExecutionException e) {
                     e.printStackTrace();

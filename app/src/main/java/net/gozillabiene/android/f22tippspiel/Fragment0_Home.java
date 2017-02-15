@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutionException;
 
 
 public class Fragment0_Home extends Fragment {
-
+Context context;
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -31,7 +31,7 @@ public class Fragment0_Home extends Fragment {
 
             String output = null;
             try {
-                output = FunktionenAllgemein.datenSenden(getActivity(),ben,pass,"naechstes_spiel","1",getString(R.string.saison));
+                output = FunktionenAllgemein.datenSenden(getActivity(),ben,pass,"naechstes_spiel","1",FunktionenAllgemein.getSaison(getActivity()).replaceAll("[\\D]", ""));
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {

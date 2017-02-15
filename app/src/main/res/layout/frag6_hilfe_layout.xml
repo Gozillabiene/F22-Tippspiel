@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/normaleseite">
+    android:background="@drawable/fussball">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/normaleseite">
 
     <LinearLayout
         android:orientation="vertical"
@@ -80,3 +84,4 @@
         android:id="@+id/copyright" />
 
 </RelativeLayout>
+    </RelativeLayout>

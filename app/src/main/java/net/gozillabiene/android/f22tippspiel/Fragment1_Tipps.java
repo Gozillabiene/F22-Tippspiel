@@ -57,7 +57,7 @@ public String item;
 
                     if(FunktionenAllgemein.isURLReachable(getActivity())) {
 
-                        datenSenden(ben, pass, "tipp_lesen", item, getString(R.string.saison));
+                        datenSenden(ben, pass, "tipp_lesen", item, FunktionenAllgemein.getSaison(getActivity()).replaceAll("[\\D]", ""));
                     }
                 } catch (ExecutionException e) {
                     e.printStackTrace();

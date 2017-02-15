@@ -69,10 +69,7 @@ public class UpdateDialoge {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         alertDialogBuilder.setTitle("Changelog");
         alertDialogBuilder
-                .setMessage("Neuerungen in der Version "+ version +"\n\n" +
-                        "- Dieser Dialog :-)\n" +
-                        "- Farben der Platzierungen in der Übersicht\n" +
-                        "- kleine Fehler behoben\n")
+                .setMessage("Neuerungen in der Version "+ version +"\n\n" + context.getString(R.string.changelog))
                 .setIcon(R.drawable.ic_warning_black_24dp)
                 .setCancelable(true)
                 .setPositiveButton("Ok",new DialogInterface.OnClickListener() {

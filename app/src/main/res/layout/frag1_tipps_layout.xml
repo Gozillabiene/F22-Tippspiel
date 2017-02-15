@@ -3,8 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
+    android:background="@drawable/fussball"
     android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/normaleseite">
+
     <TextView
         android:id="@+id/copyright"
         android:layout_width="wrap_content"
@@ -113,7 +118,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_heim1"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_gast1"/>
 
                     <TextView
                         android:layout_width="10dp"
@@ -131,7 +137,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_gast1"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_heim2"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -206,7 +213,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_heim2"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_gast2"/>
 
                     <TextView
                         android:layout_width="10dp"
@@ -224,7 +232,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_gast2"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_heim3"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -299,7 +308,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_heim3"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_gast3"/>
 
                     <TextView
                         android:layout_width="10dp"
@@ -317,7 +327,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_gast3"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_heim4"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -392,7 +403,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_heim4"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_gast4"/>
 
                     <TextView
                         android:layout_width="10dp"
@@ -410,7 +422,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_gast4"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_heim5"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -485,7 +498,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_heim5"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_gast5"/>
 
                     <TextView
                         android:layout_width="10dp"
@@ -503,7 +517,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_gast5"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_heim6"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -578,7 +593,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_heim6"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_gast6"/>
 
                     <TextView
                         android:layout_width="10dp"
@@ -596,7 +612,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_gast6"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_heim7"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -671,7 +688,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_heim7"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_gast7"/>
 
                     <TextView
                         android:layout_width="10dp"
@@ -689,7 +707,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_gast7"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_heim8"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -764,7 +783,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_heim8"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_gast8"/>
 
                     <TextView
                         android:layout_width="10dp"
@@ -782,7 +802,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_gast8"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_heim9"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -857,7 +878,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_heim9"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_gast9"/>
 
                     <TextView
                         android:layout_width="10dp"
@@ -875,7 +897,8 @@
                         android:ems="10"
                         android:inputType="number"
                         android:labelFor="@+id/et_gast9"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:nextFocusDown="@+id/et_heim1"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -897,3 +920,4 @@
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
+    </RelativeLayout>

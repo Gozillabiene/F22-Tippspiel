@@ -232,5 +232,24 @@ public class FunktionenAllgemein {
         return false;
     }
 
+    public static String getSaison(Context context){
+
+        String output=null;
+        try {
+            if(FunktionenAllgemein.isURLReachable(context)) {
+
+                output = new AuslesenWeb()
+                        .execute("","", "saison","","")
+                        .get();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
+        return output;
+    }
 
 }

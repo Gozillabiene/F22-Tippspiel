@@ -3,9 +3,13 @@
     <!-- Common -->
     <string name="app_name">F22 Tippspiel</string>
 
-    <string name="versionName">2.0.9</string>
+    <string name="versionName">3.0.2</string>
+    <string name="changelog">
+        - Anleitung geschrieben\n
+        - Farbe für die Punkte beim Zusatztipp geänder\n
+        -
+    </string>
     <integer name="versionCode">1</integer>
-    <string name="saison">1617</string>
 
     <string name="copyright">© 2016 Gozillabiene</string>
     <string name="adm_mail">webmaster@gozillabiene.net</string>
@@ -22,6 +26,7 @@
     <string name="action_settings">Einstellungen</string>
     <string name="action_login">Login</string>
     <string name="nav_tipps">Tipps</string>
+    <string name="nav_zusatz">Zusatztipp</string>
     <string name="nav_tabelle">Tabelle</string>
     <string name="nav_ubersicht">Übersicht</string>
     <string name="nav_admin">Admin</string>
@@ -65,6 +70,105 @@
         <item>33. Spieltag (Rückrunde)</item><item>34. Spieltag (Rückrunde)</item>
     </string-array>
     <!-- /Seite Tipps -->
+
+    <!-- Seite Zusatz -->
+    <string-array name="spn_zusatz">
+        <item>Bitte wählen.</item>
+        <item>Hinrunde</item>
+        <item>Rückrunde</item>
+    </string-array>
+    <string name="label_z1">Platz 1</string>
+    <string name="label_z2">Platz 2</string>
+    <string name="label_z3">Platz 3</string>
+    <string name="label_z4">Platz 4</string>
+    <string name="label_z5">Platz 5</string>
+    <string name="label_z6">Platz 6</string>
+    <string name="label_z7">Platz 7</string>
+    <string name="label_z8">Platz 8</string>
+    <string name="label_z9">Platz 9</string>
+    <string name="label_z10">Platz 10</string>
+    <string name="label_z11">Platz 11</string>
+    <string name="label_z12">Platz 12</string>
+    <string name="label_z13">Platz 13</string>
+    <string name="label_z14">Platz 14</string>
+    <string name="label_z15">Platz 15</string>
+    <string name="label_z16">Platz 16</string>
+    <string name="label_z17">Platz 17</string>
+    <string name="label_z18">Platz 18</string>
+    <string name="btn_speichern">speichern</string>
+    <!-- /Seite Zusatz -->
+
+    <!-- Seite Anleitung -->
+    <string name="anleitung_label1">Anleitung</string>
+    <string name="anleitung_text1">\n
+        Zum Anmelden oben rechts auf die 3 Punkte\n
+        klicken und dort Login auswählen. Dort dann\n
+        den Benutzernamen und das Passwort eingeben\n
+        wie auch auf der Webseite. Wenn alles\n
+        richtig ist, steht oben in der Stausleiste :\n
+        Angemeldet als : .......\n\n
+    </string>
+    <string name="anleitung_label2">Menü Tipps</string>
+    <string name="anleitung_text2">\n
+        Unter Tipps können dann die Tipps für die\n
+        Spiele eingegeben werden (Bis zum Anpfiff,\n
+        dann wird die eingabe gesperrt). Pro\n
+        Spieltag kann man einen Joker setzten,\n
+        für den man bei einem richtigen Tipp\n
+        einen Bonus von 2 Punkten erhält.\n\n
+    </string>
+    <string name="anleitung_label3">Menü Zusatztipp</string>
+    <string name="anleitung_text3">\n
+        Beim Zusatztipp kann man auf die Platzierungen\n
+        zum ende der Hinrunde bzw. Rückrunde setzen\n
+        (Bis zum beginn des 1. bzw des 18. Spieltages),\n
+        dann werden die Eingaben gesperrt und man\n
+        sieht alle Tipps von den Mitspielern.\n\n
+    </string>
+    <string name="anleitung_label4">Menü Tabelle</string>
+    <string name="anleitung_text4">\n
+        Hier sieht man den aktuellen\n
+        Tabellenstand der Mannschaften.\n\n
+    </string>
+    <string name="anleitung_label5">Menü Übersicht</string>
+    <string name="anleitung_text5">\n
+        In der Übersicht kann man sehen, wie die\n
+        anderen Mitspieler getippt haben und wieviel\n
+        Punkte bekommt. Ganz oben setehen die\n
+        Begegnungen der Mannschaften und gleich\n
+        darunter das ergebnis. In der 3. Zeile\n
+        sieht man wie die Tipptendenz ist S-ieg,\n
+        U-nentschieden oder N-iederlage.\n\n
+    </string>
+    <string name="anleitung_label6">Menü Hilfe</string>
+    <string name="anleitung_text6">\n
+        Sollte irgendwas mal nicht mit der Tippeingabe\n
+        klappen, oder sonstige Probleme beim Spiel sein\n
+        steht hier eine Mail Adresse und eine\n
+        Telefonnummer von John, wo ihr dann die\n
+        Tipps hinschicken könnt und natürlich auch\n
+        die Beschreibung von den Fehler.\n\n
+    </string>
+    <string name="anleitung_label7">Menü Einstellungen</string>
+    <string name="anleitung_text7">\n
+        Benachrichtigungen einschalten, um zum\n
+        Spieltag eine Push Nachricht zu bekommen.\n
+        Die Nachricht kommt gegen 10 Uhr\n
+        Ihr könnt noch einstellen, ob Ton,vibration\n
+        und Licht. Beim Licht könnt ihr euch die\n
+        Farbe aussuchen.\n
+        Nicht alle Handys können jede Farbe\n
+        darstellen.\n\n
+    </string>
+    <string name="anleitung_label8">Punkte</string>
+    <string name="anleitung_text8">\n
+        5 Punkte bei einem richtigem Tipp\n
+        7 Punkte beim richtigem Tipp mit Joker\n
+        3 Punkte bei der richtigen Tipptendenz\n
+        2 Punkte bei Remies Tipp\n
+        1 Punkt beim richtigem Sieger.\n\n
+    </string>
+    <!-- /Seite Anleitung -->
 
     <!-- Recourcen Login -->
     <string name="login_benutzername_title">Benutzername</string>

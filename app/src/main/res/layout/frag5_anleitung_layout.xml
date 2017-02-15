@@ -1,14 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fussball"
+    android:orientation="vertical">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/normaleseite">
-
     <TextView
-        android:text="@string/copyright"
+        android:id="@+id/copyright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/copyright" />
+        android:text="@string/copyright" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/anleitung_label1"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="normal|bold"
+                tools:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anleitung_text1"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="normal"
+                tools:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/anleitung_label2"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="normal|bold"
+                tools:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anleitung_text2"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="normal"
+                tools:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/anleitung_label3"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="normal|bold"
+                tools:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anleitung_text3"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="normal"
+                tools:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/anleitung_label4"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="normal|bold"
+                tools:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anleitung_text4"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="normal"
+                tools:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/anleitung_label5"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="normal|bold"
+                tools:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anleitung_text5"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="normal"
+                tools:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/anleitung_label6"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="normal|bold"
+                tools:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anleitung_text6"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="normal"
+                tools:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/anleitung_label7"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="normal|bold"
+                tools:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anleitung_text7"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="normal"
+                tools:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/anleitung_label8"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="normal|bold"
+                tools:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anleitung_text8"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="normal"
+                tools:textSize="14sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
 </RelativeLayout>
