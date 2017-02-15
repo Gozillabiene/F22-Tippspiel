@@ -39,7 +39,7 @@ Context context;
             }
             String[] result = output.split("#@@#");
             TextView tv = (TextView) fraglayoutv0.findViewById(R.id.textView8);
-            tv.setText("Nächstes Spiel beginnt am : \n"+FunktionenAllgemein.getDate(result[0]));
+            tv.setText(getString(R.string.next_game)+FunktionenAllgemein.getDate(result[0]));
 
 
             return fraglayoutv0;

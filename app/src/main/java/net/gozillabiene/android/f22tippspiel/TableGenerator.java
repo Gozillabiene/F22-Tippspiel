@@ -3,7 +3,6 @@ package net.gozillabiene.android.f22tippspiel;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.text.style.TypefaceSpan;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.TableLayout;

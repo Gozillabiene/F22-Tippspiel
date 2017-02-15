@@ -16,7 +16,7 @@
     <string name="www">https://tipp.gozillabiene.net</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="blank"></string>
+    <string name="blank" />
     <string name="doppelpunkt">:</string>
     <string name="speichern">speichern</string>
     <string name="joker">Joker</string>
@@ -36,12 +36,13 @@
     <!-- /Navigation -->
 
     <!-- Seite Start -->
+    <string name="next_game">Nächstes Spiel beginnt am :\n</string>
     <string name="st_image">Bild</string>
     <string name="st_version">Version : </string>
     <!-- Seite Start -->
 
     <!-- Seite Hilfe -->
-    <string name="hilfetext0"></string>
+    <string name="hilfetext0" />
     <string name="hilfetext1">Bei Problemen,</string>
     <string name="hilfetext2">die Tipps an</string>
     <string name="hilfetext3">John</string>
@@ -173,12 +174,12 @@
     <!-- Recourcen Login -->
     <string name="login_benutzername_title">Benutzername</string>
     <string name="login_benutzername_key">benutzername</string>
-    <string name="login_benutzername_default"></string>
+    <string name="login_benutzername_default" />
     <string name="login_benutzername_summary">Bitte gib deinen Benutzernamen ein.</string>
 
     <string name="login_passwort_title">Passwort</string>
     <string name="login_passwort_key">passwort</string>
-    <string name="login_passwort_default"></string>
+    <string name="login_passwort_default" />
     <string name="login_passwort_summary">Bitte gib dein Passwort ein.</string>
 
     <string name="login_www_webseite">Webseite</string>
