@@ -41,7 +41,7 @@ public class Fragment4_Admin extends Fragment {
             String output=null;
             try {
                 output = new AuslesenWeb()
-                        .execute(ben,pass,"ist_admin",item,FunktionenAllgemein.getSaison(getActivity()).replaceAll("[\\D]", ""))
+                        .execute(ben,pass,"ist_admin","0",FunktionenAllgemein.getSaison(getActivity()))//.replaceAll("[\\D]", ""))
                         .get();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -92,7 +92,7 @@ public class Fragment4_Admin extends Fragment {
 
                     if(FunktionenAllgemein.isURLReachable(getActivity())) {
 
-                        datenSenden(ben, pass, "tipp_lesen", item,FunktionenAllgemein.getSaison(getActivity()).replaceAll("[\\D]", ""));
+                        datenSenden(ben, pass, "tipp_lesen", item,FunktionenAllgemein.getSaison(getActivity()));
                     }
                 } catch (ExecutionException e) {
                     e.printStackTrace();
@@ -189,7 +189,7 @@ public class Fragment4_Admin extends Fragment {
         EditText edg9 =(EditText)getActivity().findViewById(R.id.et_gast9);
 
         int zaehler=0;
-        int zeitSpanne = 60*60*24*2; // 2 Tage
+        int zeitSpanne = 60*60*24*1; // 1 Tag
         int aktZeit = Integer.parseInt(String.valueOf(System.currentTimeMillis()/1000L));
         int anfangSpiel = Integer.parseInt(result[xx]);
         int endZeit = anfangSpiel + (zeitSpanne);

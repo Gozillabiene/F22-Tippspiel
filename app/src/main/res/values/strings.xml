@@ -3,11 +3,9 @@
     <!-- Common -->
     <string name="app_name">F22 Tippspiel</string>
 
-    <string name="versionName">3.0.2</string>
+    <string name="versionName">3.0.6</string>
     <string name="changelog">
-        - Anleitung geschrieben\n
-        - Farbe für die Punkte beim Zusatztipp geänder\n
-        -
+        - Fehler Tabelle behoben\n
     </string>
     <integer name="versionCode">1</integer>
 

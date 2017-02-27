@@ -56,14 +56,16 @@ public class NotificationDisplayService extends Service {
             String[] spieltag1 = spieltag.split("#@@#");
             String[] spiel1 = spiel.split("#@@#");
             String[] getippt1 = getippt.split("#@@#");
-
+//System.out.println("Spieltag ->"+spieltag);
+//System.out.println("Spiel ->"+spiel);
+//System.out.println("Getippt ->"+getippt);
             String spielGesetzt;
             String jokerGesetzt;
 
 //            System.out.println("->"+spiel1[1]+"-->"+getippt1[0]+"->"+getippt1[1]);
 
             if (spiel1[1].equals("true")) {
-                if (getippt1[0].equals("false") || getippt1[1].equals("false")) {
+                //if (getippt1[0].equals("false") || getippt1[1].equals("false")) {
                     if (getippt1[0].equals("true")) {
                         spielGesetzt = "Ja";
                     } else {
@@ -84,7 +86,7 @@ public class NotificationDisplayService extends Service {
                     // Unsere auszufuehrende Methode.
                     //displayNotification("Dies ist eine Test-Notification mit einem seeehr langen Text, den man ausklappen muss.");
                     displayNotification(events);
-                }
+                //}
             }
         }
         // Nachdem unsere Methode abgearbeitet wurde, soll sich der Service

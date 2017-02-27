@@ -26,6 +26,7 @@ import java.util.concurrent.ExecutionException;
 
 public class FunktionenAllgemein {
 
+    // Md5 String erstellen
     public static String md5(final String s) {
         final String MD5 = "MD5";
         try {
@@ -51,8 +52,10 @@ public class FunktionenAllgemein {
         return "";
     }
 
+
+    // Timestamp auf 10 uhr setzen, wenn es nach 10 uhr ist am nächsten Tag
     public static Long getFirstTime() {
-        // Timestamp auf 10 uhr setzen, wenn es nach 10 uhr ist am nächsten Tag
+
         DateFormat sdf;
         Date netDate;
         long sysTime = System.currentTimeMillis();
@@ -87,32 +90,8 @@ public class FunktionenAllgemein {
         return firsttime;
 
     }
-    public static Long getNextHour() {
-        DateFormat sdf;
-        Date netDate;
 
-        long sysTime = System.currentTimeMillis() ;
-        sdf = new SimpleDateFormat("kk");
-        netDate = (new Date(sysTime));
-        int stundeInt =  Integer.parseInt(sdf.format(netDate))+1;
-        String stunde =  String.valueOf(stundeInt);
-
-        sdf = new SimpleDateFormat("dd");String tag = sdf.format((new Date(sysTime)));
-        sdf = new SimpleDateFormat("MM");String monat = sdf.format((new Date(sysTime)));
-        sdf = new SimpleDateFormat("yyyy");String jahr = sdf.format((new Date(sysTime)));
-
-        long firsttime=0;
-        DateFormat dfm = new SimpleDateFormat("dd.MM.yyyy kk.mm.ss.SSS");
-        String xtime = tag+"."+monat+"."+jahr+" "+stunde+".00.00.000";
-        try {
-            firsttime = dfm.parse(xtime).getTime();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return firsttime;
-
-    }
+    // Zeit aus Timestamp
     public static String getDate(String timeStampStr){
         long timestamp = Long.parseLong(timeStampStr) * 1000L;
 
@@ -126,6 +105,7 @@ public class FunktionenAllgemein {
         }
     }
 
+    // Timestamp aus Zeit
     public static Long getTimestamp(String xtime){
 
         DateFormat dfm = new SimpleDateFormat("EEE dd.MM.yyyy 'um' kk.mm");
@@ -248,8 +228,10 @@ public class FunktionenAllgemein {
             e.printStackTrace();
         }
 
-
         return output;
     }
+
+
+
 
 }
