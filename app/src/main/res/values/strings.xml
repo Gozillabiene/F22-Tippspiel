@@ -3,9 +3,10 @@
     <!-- Common -->
     <string name="app_name">F22 Tippspiel</string>
 
-    <string name="versionName">3.0.6</string>
+    <string name="versionName">4.0.1</string>
     <string name="changelog">
-        - Fehler Tabelle behoben\n
+        - Fehler behoben\n
+        - Unstellung zurück auf Android 4.4.x\n
     </string>
     <integer name="versionCode">1</integer>
 
@@ -45,7 +46,7 @@
     <string name="hilfetext2">die Tipps an</string>
     <string name="hilfetext3">John</string>
     <string name="hilfetext4">per Email schicken</string>
-    <string name="hilfetext5">john@1969@gmx.de</string>
+    <string name="hilfetext5">john_1969@gmx.de</string>
     <string name="hilfetext6">oder an</string>
     <string name="hilfetext7">0173 / 2467194</string>
     <!-- /Seite Hilfe -->

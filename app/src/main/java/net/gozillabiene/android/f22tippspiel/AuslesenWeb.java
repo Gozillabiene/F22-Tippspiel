@@ -20,11 +20,17 @@ public class AuslesenWeb extends AsyncTask<String,Integer,String> {
         String benutzer=params[0];
         String pass=params[1];
         String url=params[2];
-        String item = params[3].replaceAll("[\\D]","");
+        String item;
+        if(url.equals("tipp_speichern") || url.equals("erg_speichern")){
+            item = params[3];
+
+        }else{
+            item = params[3].replaceAll("[\\D]","");
+        }
         String saison = params[4].replaceAll("[\\D]","");
 
 //        System.out.println("-b->"+benutzer+"-p->"+pass+"-i->"+item+"-s->"+saison+"-u->"+url);
-
+System.out.println(params[3]);
         HttpClient client = new DefaultHttpClient();
         HttpGet request = new HttpGet("https://tipp.gozillabiene.net/androidAPI/"+url+"/"+url+".php?item="+item+"&ben="+benutzer+"&pass="+pass+"&saison="+saison);
 

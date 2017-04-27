@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity
     public int neueVersion;
     private final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1001;
     long backPressedTime = 0;
-    public boolean IST_ADMIN = false;
+
     String saison;
 
     @Override
@@ -436,6 +436,8 @@ public class MainActivity extends AppCompatActivity
         try {
             if(FunktionenAllgemein.isURLReachable(context)) {
 
+                System.out.println(newString5);
+
                 output = new AuslesenWeb()
                         .execute(benutzername(), FunktionenAllgemein.md5(passwort()), "tipp_speichern", newString5, saison)
                         .get();
@@ -446,9 +448,11 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-
-        Toast.makeText(this,"gespeichert", Toast.LENGTH_SHORT).show();
-
+        if(output.equals("success")) {
+            Toast.makeText(this, "gespeichert", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "fehlgeschlagen", Toast.LENGTH_SHORT).show();
+        }
 
 
     }
