@@ -199,7 +199,7 @@ public class NotificationDisplayService extends Service {
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         if (netInfo != null && netInfo.isConnected()) {
             try {
-                URL url = new URL("https://tipp.gozillabiene.net");   // Change to "http://google.com" for www  test.
+                URL url = new URL("http://tipp.gozillabiene.net");   // Change to "http://google.com" for www  test.
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
                 conn.setConnectTimeout(10 * 1000);          // 10 s.

@@ -14,7 +14,7 @@ public class ConnecttoGet {
 
     public static String callWeb(Context context, String benutzer, String pass, String seite, String item, String saison) {
 
-        String urlstring="https://tipp.gozillabiene.net/androidAPI/"+seite+"/"+seite+".php?item="+item+"&ben="+benutzer+"&pass="+pass+"&saison="+saison;
+        String urlstring="http://tipp.gozillabiene.net/androidAPI/"+seite+"/"+seite+".php?item="+item+"&ben="+benutzer+"&pass="+pass+"&saison="+saison;
         String data = null;
 
         try {

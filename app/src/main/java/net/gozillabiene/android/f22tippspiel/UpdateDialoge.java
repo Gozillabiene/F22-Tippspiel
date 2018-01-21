@@ -26,7 +26,7 @@ public class UpdateDialoge {
 
                                 UpdateApp atualizaApp = new UpdateApp();
                                 atualizaApp.setContext(ma);
-                                atualizaApp.execute("https://tipp.gozillabiene.net/androidAPI/version/","F22-Tippspiel_v"+neueVersion);
+                                atualizaApp.execute("http://tipp.gozillabiene.net/androidAPI/version/","F22-Tippspiel_v"+neueVersion);
 
                             }
                         }
@@ -51,7 +51,7 @@ public class UpdateDialoge {
 
                         UpdateApp atualizaApp = new UpdateApp();
                         atualizaApp.setContext(ma);
-                        atualizaApp.execute("https://tipp.gozillabiene.net/androidAPI/version/","F22-Tippspiel_v"+neueVersion);
+                        atualizaApp.execute("http://tipp.gozillabiene.net/androidAPI/version/","F22-Tippspiel_v"+neueVersion);
 
                     }
                 })

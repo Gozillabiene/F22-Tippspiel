@@ -38,9 +38,11 @@ Context context;
                 e.printStackTrace();
             }
             String[] result = output.split("#@@#");
-            TextView tv = (TextView) fraglayoutv0.findViewById(R.id.textView8);
-            tv.setText(getString(R.string.next_game)+FunktionenAllgemein.getDate(result[0]));
 
+        if(!result[0].isEmpty()) {
+    TextView tv = (TextView) fraglayoutv0.findViewById(R.id.textView8);
+    tv.setText(getString(R.string.next_game) + FunktionenAllgemein.getDate(result[0]));
+}
 
             return fraglayoutv0;
     }

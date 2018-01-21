@@ -93,17 +93,22 @@ public class FunktionenAllgemein {
 
     // Zeit aus Timestamp
     public static String getDate(String timeStampStr){
-        long timestamp = Long.parseLong(timeStampStr) * 1000L;
+
+//        System.out.println("--->" + timeStampStr);
+//        if (!timeStampStr.equals("")) {
+            long timestamp = Long.parseLong(timeStampStr) * 1000L;
 
 
-        try{
-            DateFormat sdf = new SimpleDateFormat("EEE dd.MM.yyyy 'um' kk.mm");
-            Date netDate = (new Date(timestamp));
-            return sdf.format(netDate);
-        } catch (Exception ignored) {
-            return "xx";
+            try {
+                DateFormat sdf = new SimpleDateFormat("EEE dd.MM.yyyy 'um' kk.mm");
+                Date netDate = (new Date(timestamp));
+                return sdf.format(netDate);
+            } catch (Exception ignored) {
+                return "xx";
+            }
         }
-    }
+//        return "xx";
+//    }
 
     // Timestamp aus Zeit
     public static Long getTimestamp(String xtime){
@@ -185,7 +190,7 @@ public class FunktionenAllgemein {
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         if (netInfo != null && netInfo.isConnected()) {
             try {
-                URL url = new URL("https://tipp.gozillabiene.net");   // Change to "http://google.com" for www  test.
+                URL url = new URL("http://tipp.gozillabiene.net");   // Change to "http://google.com" for www  test.
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
                 conn.setConnectTimeout(10 * 1000);          // 10 s.

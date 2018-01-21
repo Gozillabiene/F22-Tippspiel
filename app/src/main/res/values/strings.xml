@@ -3,16 +3,16 @@
     <!-- Common -->
     <string name="app_name">F22 Tippspiel</string>
 
-    <string name="versionName">4.0.1</string>
+    <string name="versionName">5.0.2</string>
     <string name="changelog">
+        - Tel.Nr. geändert\n
         - Fehler behoben\n
-        - Unstellung zurück auf Android 4.4.x\n
     </string>
     <integer name="versionCode">1</integer>
 
     <string name="copyright">© 2016 Gozillabiene</string>
     <string name="adm_mail">webmaster@gozillabiene.net</string>
-    <string name="www">https://tipp.gozillabiene.net</string>
+    <string name="www">http://tipp.gozillabiene.net</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="blank" />
@@ -48,7 +48,7 @@
     <string name="hilfetext4">per Email schicken</string>
     <string name="hilfetext5">john_1969@gmx.de</string>
     <string name="hilfetext6">oder an</string>
-    <string name="hilfetext7">0173 / 2467194</string>
+    <string name="hilfetext7">0179 / 6931878</string>
     <!-- /Seite Hilfe -->
 
     <!-- Seite Tipps -->

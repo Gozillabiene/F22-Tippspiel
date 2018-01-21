@@ -21,7 +21,7 @@ public class Fragment7_Zusatztipp extends Fragment implements View.OnClickListen
     public TableGenerator mTable1;
     public ScrollView layMain1;
     Button btn_speichern;
-
+    Spinner[] spinner = new Spinner[19];
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,98 +116,98 @@ public class Fragment7_Zusatztipp extends Fragment implements View.OnClickListen
             sv2.setVisibility(View.VISIBLE);
             sv3.setVisibility(View.GONE);
 
-            Spinner sp1 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz1);
+            spinner[1] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz1);
             ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp1.setAdapter(adapter1);
-            Spinner sp2 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz2);
+            spinner[1].setAdapter(adapter1);
+            spinner[2] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz2);
             ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp2.setAdapter(adapter2);
-            Spinner sp3 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz3);
+            spinner[2].setAdapter(adapter2);
+            spinner[3] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz3);
             ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp3.setAdapter(adapter3);
-            Spinner sp4 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz4);
+            spinner[3].setAdapter(adapter3);
+            spinner[4] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz4);
             ArrayAdapter<String> adapter4 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp4.setAdapter(adapter4);
-            Spinner sp5 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz5);
+            spinner[4].setAdapter(adapter4);
+            spinner[5] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz5);
             ArrayAdapter<String> adapter5 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp5.setAdapter(adapter5);
-            Spinner sp6 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz6);
+            spinner[5].setAdapter(adapter5);
+            spinner[6] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz6);
             ArrayAdapter<String> adapter6 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp6.setAdapter(adapter6);
-            Spinner sp7 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz7);
+            spinner[6].setAdapter(adapter6);
+            spinner[7] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz7);
             ArrayAdapter<String> adapter7 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp7.setAdapter(adapter7);
-            Spinner sp8 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz8);
+            spinner[7].setAdapter(adapter7);
+            spinner[8] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz8);
             ArrayAdapter<String> adapter8 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter8.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp8.setAdapter(adapter8);
-            Spinner sp9 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz9);
+            spinner[8].setAdapter(adapter8);
+            spinner[9] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz9);
             ArrayAdapter<String> adapter9 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter9.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp9.setAdapter(adapter9);
-            Spinner sp10 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz10);
+            spinner[9].setAdapter(adapter9);
+            spinner[10] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz10);
             ArrayAdapter<String> adapter10 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter10.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp10.setAdapter(adapter10);
-            Spinner sp11 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz11);
+            spinner[10].setAdapter(adapter10);
+            spinner[11] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz11);
             ArrayAdapter<String> adapter11 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter11.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp11.setAdapter(adapter11);
-            Spinner sp12 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz12);
+            spinner[11].setAdapter(adapter11);
+            spinner[12] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz12);
             ArrayAdapter<String> adapter12 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter12.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp12.setAdapter(adapter12);
-            Spinner sp13 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz13);
+            spinner[12].setAdapter(adapter12);
+            spinner[13] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz13);
             ArrayAdapter<String> adapter13 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter13.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp13.setAdapter(adapter13);
-            Spinner sp14 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz14);
+            spinner[13].setAdapter(adapter13);
+            spinner[14] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz14);
             ArrayAdapter<String> adapter14 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter14.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp14.setAdapter(adapter14);
-            Spinner sp15 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz15);
+            spinner[14].setAdapter(adapter14);
+            spinner[15] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz15);
             ArrayAdapter<String> adapter15 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter15.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp15.setAdapter(adapter15);
-            Spinner sp16 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz16);
+            spinner[15].setAdapter(adapter15);
+            spinner[16] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz16);
             ArrayAdapter<String> adapter16 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter16.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp16.setAdapter(adapter16);
-            Spinner sp17 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz17);
+            spinner[16].setAdapter(adapter16);
+            spinner[17] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz17);
             ArrayAdapter<String> adapter17 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter17.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp17.setAdapter(adapter17);
-            Spinner sp18 = (Spinner) getActivity().findViewById(R.id.spinner_zusatz18);
+            spinner[17].setAdapter(adapter17);
+            spinner[18] = (Spinner) getActivity().findViewById(R.id.spinner_zusatz18);
             ArrayAdapter<String> adapter18 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, vereine);
             adapter18.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            sp18.setAdapter(adapter18);
+            spinner[18].setAdapter(adapter18);
 
             for (int i = 1; i < 19; i++) {
-                if (result[18].equals(vereine[i])) {sp1.setSelection(i);}
-                if (result[19].equals(vereine[i])) {sp2.setSelection(i);}
-                if (result[20].equals(vereine[i])) {sp3.setSelection(i);}
-                if (result[21].equals(vereine[i])) {sp4.setSelection(i);}
-                if (result[22].equals(vereine[i])) {sp5.setSelection(i);}
-                if (result[23].equals(vereine[i])) {sp6.setSelection(i);}
-                if (result[24].equals(vereine[i])) {sp7.setSelection(i);}
-                if (result[25].equals(vereine[i])) {sp8.setSelection(i);}
-                if (result[26].equals(vereine[i])) {sp9.setSelection(i);}
-                if (result[27].equals(vereine[i])) {sp10.setSelection(i);}
-                if (result[28].equals(vereine[i])) {sp11.setSelection(i);}
-                if (result[29].equals(vereine[i])) {sp12.setSelection(i);}
-                if (result[30].equals(vereine[i])) {sp13.setSelection(i);}
-                if (result[31].equals(vereine[i])) {sp14.setSelection(i);}
-                if (result[32].equals(vereine[i])) {sp15.setSelection(i);}
-                if (result[33].equals(vereine[i])) {sp16.setSelection(i);}
-                if (result[34].equals(vereine[i])) {sp17.setSelection(i);}
-                if (result[35].equals(vereine[i])) {sp18.setSelection(i);}
+                if (result[18].equals(vereine[i])) {spinner[1].setSelection(i);kontrolle(i,1);}
+                if (result[19].equals(vereine[i])) {spinner[2].setSelection(i);}
+                if (result[20].equals(vereine[i])) {spinner[3].setSelection(i);}
+                if (result[21].equals(vereine[i])) {spinner[4].setSelection(i);}
+                if (result[22].equals(vereine[i])) {spinner[5].setSelection(i);}
+                if (result[23].equals(vereine[i])) {spinner[6].setSelection(i);}
+                if (result[24].equals(vereine[i])) {spinner[7].setSelection(i);}
+                if (result[25].equals(vereine[i])) {spinner[8].setSelection(i);}
+                if (result[26].equals(vereine[i])) {spinner[9].setSelection(i);}
+                if (result[27].equals(vereine[i])) {spinner[10].setSelection(i);}
+                if (result[28].equals(vereine[i])) {spinner[11].setSelection(i);}
+                if (result[29].equals(vereine[i])) {spinner[12].setSelection(i);}
+                if (result[30].equals(vereine[i])) {spinner[13].setSelection(i);}
+                if (result[31].equals(vereine[i])) {spinner[14].setSelection(i);}
+                if (result[32].equals(vereine[i])) {spinner[15].setSelection(i);}
+                if (result[33].equals(vereine[i])) {spinner[16].setSelection(i);}
+                if (result[34].equals(vereine[i])) {spinner[17].setSelection(i);}
+                if (result[35].equals(vereine[i])) {spinner[18].setSelection(i);}
             }
         }else{
             sv2.setVisibility(View.GONE);
@@ -257,6 +257,15 @@ public class Fragment7_Zusatztipp extends Fragment implements View.OnClickListen
 
         }
     }
+
+    public void kontrolle(int item,int spinn){
+        for (int i = 1; i < 19; i++) {
+            //spinner[spinn].
+
+        }
+
+    }
+
 
     public void speichern(){
 

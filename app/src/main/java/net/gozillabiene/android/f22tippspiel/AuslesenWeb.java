@@ -32,7 +32,7 @@ public class AuslesenWeb extends AsyncTask<String,Integer,String> {
 //        System.out.println("-b->"+benutzer+"-p->"+pass+"-i->"+item+"-s->"+saison+"-u->"+url);
 System.out.println(params[3]);
         HttpClient client = new DefaultHttpClient();
-        HttpGet request = new HttpGet("https://tipp.gozillabiene.net/androidAPI/"+url+"/"+url+".php?item="+item+"&ben="+benutzer+"&pass="+pass+"&saison="+saison);
+        HttpGet request = new HttpGet("http://tipp.gozillabiene.net/androidAPI/"+url+"/"+url+".php?item="+item+"&ben="+benutzer+"&pass="+pass+"&saison="+saison);
 
         ResponseHandler<String> responseHandler = new BasicResponseHandler();
 

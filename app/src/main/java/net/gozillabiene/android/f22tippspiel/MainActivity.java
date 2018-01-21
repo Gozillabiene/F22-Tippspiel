@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        System.out.println("--->-->"+FunktionenAllgemein.getSaison(context));
+
         saison=FunktionenAllgemein.getSaison(context).replaceAll("[\\D]", "");
 
         starteService();
@@ -74,6 +76,9 @@ public class MainActivity extends AppCompatActivity
         versionsKontrolle();
 
         aktuellerSpieltag = spielTag();
+
+        System.out.println("<<<---->>>"+aktuellerSpieltag);
+
     }
         changeTextview(getString(R.string.nichtangemeldet));
 
@@ -638,7 +643,7 @@ public class MainActivity extends AppCompatActivity
 
                     UpdateApp atualizaApp = new UpdateApp();
                     atualizaApp.setContext(getApplicationContext());
-                    atualizaApp.execute("https://tipp.gozillabiene.net/androidAPI/version/","F22-Tippspiel_v"+neueVersion);
+                    atualizaApp.execute("http://tipp.gozillabiene.net/androidAPI/version/","F22-Tippspiel_v"+neueVersion);
 
                 }else{
                     this.finish();

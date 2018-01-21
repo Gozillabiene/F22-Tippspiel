@@ -149,11 +149,22 @@ public class Fragment3_Ubersicht extends Fragment {
     }
     private void showTable(String input) {
 
+
         String[] result=null;
         result = input.split("#@@#");
 
-        int [] si = new int[9];int [] un = new int[9];int [] ni = new int[9];int[] gesPunkte = new int[35];
-        String [] sun = new String[9];
+        int [] si = new int[10];int [] un = new int[10];int [] ni = new int[10];int[] gesPunkte = new int[35];
+        String [] sun = new String[10];
+        sun[0]="";
+        sun[1]="";
+        sun[2]="";
+        sun[3]="";
+        sun[4]="";
+        sun[5]="";
+        sun[6]="";
+        sun[7]="";
+        sun[8]="";
+
         String punkte;
         int a1;int a2;
         int zz =10; // ergebnis erstes spiel
@@ -177,6 +188,7 @@ public class Fragment3_Ubersicht extends Fragment {
                         } else if (a1 < a2) {
                             ni[q]++;
                         }
+                        sun[q]="";
                         sun[q] = si[q] + "-" + un[q] + "-" + ni[q];
 
                         punkte=punkte(result[zz+q],result[yy+q]);
@@ -199,6 +211,7 @@ public class Fragment3_Ubersicht extends Fragment {
 
         mTable1 = new TableGenerator(getActivity());
         layMain1 = (HorizontalScrollView)fraglayoutv3.findViewById(R.id.table1);
+
 
         String[] row1 = {"Spiel",result[1],result[2],result[3],result[4],result[5],result[6],result[7],result[8],result[9]," "," "," "," "};mTable1.addRow(row1,0);
         String[] row2 = {"Erg.",result[10],result[11],result[12],result[13],result[14],result[15],result[16],result[17],result[18]," "," "," "," "};mTable1.addRow(row2,0);

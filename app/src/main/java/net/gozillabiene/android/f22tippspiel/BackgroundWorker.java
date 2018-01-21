@@ -25,7 +25,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected String doInBackground(String... params) {
         String type = params[0];
-        String login_url = "https://tipp.gozillabiene.net/androidAPI/login/login.php";
+        String login_url = "http://tipp.gozillabiene.net/androidAPI/login/login.php";
         if(type.equals("login")) {
             try {
                 String user_name = params[1];
